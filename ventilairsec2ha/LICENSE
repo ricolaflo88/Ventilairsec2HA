@@ -23,6 +23,7 @@ SOFTWARE.
 ---
 
 Credits:
+
 - Base addon structure inspired by Home Assistant example addons
 - EnOcean protocol based on official specifications
 - Ventilairsec logic adapted from Jeedom plugin

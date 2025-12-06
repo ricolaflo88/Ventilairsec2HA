@@ -29,7 +29,7 @@ from webui_server import WebUIServer
 
 class VentilairsecHA:
     """Main application class for Ventilairsec2HA addon"""
-    
+
     def __init__(self):
         self.config: Optional[Config] = None
         self.communicator: Optional[EnOceanCommunicator] = None
@@ -37,19 +37,19 @@ class VentilairsecHA:
         self.ha_integration: Optional[HomeAssistantIntegration] = None
         self.webui_server: Optional[WebUIServer] = None
         self.running = False
-        
+
     async def initialize(self) -> bool:
         """Initialize all components"""
         try:
             logger.info("🚀 Initializing Ventilairsec2HA addon...")
-            
+
             # Load configuration
             self.config = Config()
             if not self.config.load():
                 logger.error("❌ Failed to load configuration")
                 return False
             logger.info(f"✅ Configuration loaded: serial_port={self.config.serial_port}")
-            
+
             # Initialize EnOcean communicator
             self.communicator = EnOceanCommunicator(
                 port=self.config.serial_port,
@@ -59,11 +59,11 @@ class VentilairsecHA:
                 logger.error("❌ Failed to initialize EnOcean communicator")
                 return False
             logger.info(f"✅ EnOcean communicator initialized ({self.communicator.connection_type})")
-            
+
             # Initialize Ventilairsec manager
             self.ventilairsec_manager = VentilairsecManager(self.communicator)
             logger.info("✅ Ventilairsec manager initialized")
-            
+
             # Initialize Home Assistant integration
             if self.config.enable_mqtt:
                 self.ha_integration = HomeAssistantIntegration(
@@ -73,7 +73,7 @@ class VentilairsecHA:
                 )
                 if not await self.ha_integration.initialize():
                     logger.warning("⚠️  Failed to initialize Home Assistant integration")
-            
+
             # Initialize WebUI server
             self.webui_server = WebUIServer(
                 self.config,
@@ -82,68 +82,68 @@ class VentilairsecHA:
             )
             if not await self.webui_server.start():
                 logger.warning("⚠️  Failed to start WebUI server")
-            
+
             logger.info("✅ All components initialized successfully")
             return True
-            
+
         except Exception as e:
             logger.error(f"❌ Initialization error: {e}", exc_info=True)
             return False
-    
+
     async def run(self):
         """Main run loop"""
         self.running = True
         logger.info("📡 Starting main loop...")
-        
+
         try:
             # Register signal handlers
             loop = asyncio.get_event_loop()
             loop.add_signal_handler(signal.SIGTERM, self.shutdown)
             loop.add_signal_handler(signal.SIGINT, self.shutdown)
-            
+
             # Start receivers
             tasks = [
                 self.communicator.receive_loop(),
                 self.ventilairsec_manager.processing_loop()
             ]
-            
+
             if self.ha_integration:
                 tasks.append(self.ha_integration.publish_loop())
-            
+
             if self.webui_server:
                 tasks.append(self.webui_server.server_loop())
-            
+
             # Run all tasks concurrently
             await asyncio.gather(*tasks)
-            
+
         except Exception as e:
             logger.error(f"❌ Runtime error: {e}", exc_info=True)
         finally:
             await self.shutdown()
-    
+
     def shutdown(self):
         """Shutdown handler"""
         logger.info("🛑 Shutting down...")
         self.running = False
-        
+
         if self.communicator:
             self.communicator.stop()
         if self.ha_integration:
             asyncio.create_task(self.ha_integration.close())
         if self.webui_server:
             asyncio.create_task(self.webui_server.stop())
-        
+
         logger.info("✅ Shutdown complete")
 
 
 async def main():
     """Application entry point"""
     app = VentilairsecHA()
-    
+
     if not await app.initialize():
         logger.error("Initialization failed, exiting")
         sys.exit(1)
-    
+
     await app.run()
 
 

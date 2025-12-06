@@ -2,7 +2,7 @@
 
 Addon Home Assistant OS pour contrôler une **VMI Purevent Ventilairsec** via le protocole **EnOcean**.
 
-Cet addon reproduit la fonctionnalité du plugin Jeedom *Ventilairsec* en intégrant le protocole de communication *OpenEnOcean*, permettant à Home Assistant de communiquer directement avec votre VMI et ses capteurs associés.
+Cet addon reproduit la fonctionnalité du plugin Jeedom _Ventilairsec_ en intégrant le protocole de communication _OpenEnOcean_, permettant à Home Assistant de communiquer directement avec votre VMI et ses capteurs associés.
 
 ## 🎯 Objectif Principal
 
@@ -17,28 +17,33 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 ## 📦 Appareils Supportés
 
 ### 1️⃣ VMI Ventilairsec Purevent
+
 - **RORG-FUNC-TYPE:** D1-07-9F (D1079-01-00)
 - **Adresse:** `0x0421574F`
 - **Commandes:** Vitesse, mode, arrêt, consultation d'état
 - **Capteurs internes:** Température, erreurs, mode ventilation
 
 ### 2️⃣ Capteur CO₂ Externe
+
 - **RORG-FUNC-TYPE:** A5-09-04
 - **Adresse:** `0x81003227`
 - **Mesure:** CO₂ en ppm (0-2500)
 
 ### 3️⃣ Capteur Température + Humidité
+
 - **RORG-FUNC-TYPE:** A5-04-01
 - **Adresse:** `0x810054F5`
 - **Mesures:** Température (°C) et Humidité (%)
 
 ### 4️⃣ Assistant Ventilairsec (Télécommande)
+
 - **RORG-FUNC-TYPE:** D1-07-9F (D1079-00-00)
 - **Adresse:** `0x0422407D`
 
 ## 🚀 Fonctionnalités
 
 ### ✅ Implémentation
+
 - [x] Pile EnOcean complète (réception/parsing/envoi)
 - [x] Décodage des trames D1-07-9F (VMI Purevent)
 - [x] Support des capteurs 4BS (A5-04-xx)
@@ -48,6 +53,7 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 - [x] Logging avancé
 
 ### 📋 En Développement
+
 - [ ] Entités Home Assistant natives
 - [ ] Dashboard Lovelace préconfiguré
 - [ ] Tests complets hardware
@@ -79,11 +85,13 @@ Après installation, configurer le port série et MQTT :
 ## 🔧 Configuration
 
 ### Port Série
+
 - **Type:** USB avec adaptateur EnOcean (Husbands TCM310)
 - **Vitesse:** 57600 baud (automatique)
 - **Port par défaut:** `/dev/ttyUSB0`
 
 ### MQTT (optionnel)
+
 - **Broker:** `mosquitto` (addon Home Assistant)
 - **Port:** `1883`
 - **Topics:** `homeassistant/ventilairsec2ha/#`
@@ -91,24 +99,28 @@ Après installation, configurer le port série et MQTT :
 ## 🌐 WebUI et API
 
 ### Accès WebUI
+
 - **URL:** `http://<home-assistant>:8080`
 - **Affiche:** État du système, appareils connectés, logs
 
 ### API REST
 
 #### Status
+
 ```bash
 GET /api/status
 # Retourne: {connected, base_id, timestamp}
 ```
 
 #### Liste des appareils
+
 ```bash
 GET /api/devices
 # Retourne: {address: {name, rorg, last_update, data}}
 ```
 
 #### Envoyer une commande
+
 ```bash
 POST /api/command
 {
@@ -120,6 +132,7 @@ POST /api/command
 ## 📡 Topics MQTT
 
 ### Publication (de l'addon vers HA)
+
 ```
 homeassistant/ventilairsec2ha/state/0421574F
 → {name: "VMI Purevent", data: {...}}
@@ -129,6 +142,7 @@ homeassistant/ventilairsec2ha/state/81003227
 ```
 
 ### Subscription (de HA vers l'addon)
+
 ```
 homeassistant/ventilairsec2ha/command/set_speed
 → payload: 50 (vitesse 0-100%)
@@ -137,6 +151,7 @@ homeassistant/ventilairsec2ha/command/set_speed
 ## 📊 Structures de Données
 
 ### État VMI (D1-07-9F)
+
 ```json
 {
   "address": "0421574F",
@@ -152,6 +167,7 @@ homeassistant/ventilairsec2ha/command/set_speed
 ```
 
 ### CO₂ (A5-09-04)
+
 ```json
 {
   "address": "81003227",
@@ -164,6 +180,7 @@ homeassistant/ventilairsec2ha/command/set_speed
 ```
 
 ### Température/Humidité (A5-04-01)
+
 ```json
 {
   "address": "810054F5",
@@ -186,6 +203,7 @@ homeassistant/ventilairsec2ha/command/set_speed
 ## 📝 Logs
 
 Accédez aux logs via :
+
 - **WebUI:** `http://<host>:8080/api/logs`
 - **Conteneur:** `docker logs addon_ventilairsec2ha`
 - **Level:** Configurable (debug|info|warning|error)
@@ -193,6 +211,7 @@ Accédez aux logs via :
 ## 🐛 Troubleshooting
 
 ### Port série non trouvé
+
 ```bash
 # Vérifier les ports disponibles
 ls -la /dev/tty*
@@ -202,11 +221,13 @@ chmod 666 /dev/ttyUSB0
 ```
 
 ### MQTT non connecté
+
 - Vérifier que l'addon Mosquitto est installé
 - Vérifier la configuration du broker MQTT
 - Vérifier les logs de l'addon
 
 ### Pas de réception de trames
+
 - Vérifier le port série
 - Vérifier la distance et la ligne de vue
 - Vérifier que les appareils EnOcean sont appairés
@@ -239,6 +260,7 @@ Les contributions sont bienvenues ! Veuillez :
 ## 📧 Support
 
 Pour les questions ou problèmes :
+
 - Ouvrir une issue sur GitHub
 - Consulter la [documentation Home Assistant](https://www.home-assistant.io/)
 - Contacter le support EnOcean

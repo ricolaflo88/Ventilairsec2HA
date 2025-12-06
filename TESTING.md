@@ -115,29 +115,34 @@ python3 -c "import serial; s = serial.Serial('/dev/ttyUSB0', 57600); print(s.rea
 ### Checklist de Pré-Déploiement
 
 #### Configuration
+
 - [ ] Port série correctement configuré
 - [ ] MQTT broker accessible
 - [ ] Logs en mode info
 - [ ] Permissions fichiers OK
 
 #### Fonctionnalité
+
 - [ ] Addon démarre sans erreurs
 - [ ] WebUI accessible sur port 8080
 - [ ] API /api/status répond
 - [ ] API /api/devices répond
 
 #### Appareils
+
 - [ ] VMI détectée (0x0421574F)
 - [ ] CO₂ détecté (0x81003227)
 - [ ] Temp/Humidité détecté (0x810054F5)
 - [ ] Assistant détecté (0x0422407D)
 
 #### MQTT
+
 - [ ] Topics publiés toutes les 10s
 - [ ] Format JSON valide
 - [ ] Données mises à jour
 
 #### Commandes
+
 - [ ] Changement vitesse VMI fonctionne
 - [ ] Logs des commandes présents
 - [ ] Pas d'erreurs
@@ -211,13 +216,13 @@ top -p $(docker inspect -f '{{.State.Pid}}' addon_ventilairsec2ha)
 
 ### Benchmarks Attendus
 
-| Métrique | Attendu | Limite |
-|----------|---------|--------|
-| CPU | <5% | <10% |
-| Mémoire | <50MB | <100MB |
-| Startup | <10s | <20s |
-| Latence MQTT | <100ms | <1s |
-| CPU par paquet | <0.1% | <0.5% |
+| Métrique       | Attendu | Limite |
+| -------------- | ------- | ------ |
+| CPU            | <5%     | <10%   |
+| Mémoire        | <50MB   | <100MB |
+| Startup        | <10s    | <20s   |
+| Latence MQTT   | <100ms  | <1s    |
+| CPU par paquet | <0.1%   | <0.5%  |
 
 ### Profiling
 
@@ -363,12 +368,14 @@ def extract_packet(self):
 ## Test Report - Ventilairsec2HA v0.1.0
 
 ### Configuration
+
 - Home Assistant version: 2024.1.0
 - Python version: 3.11
 - Docker version: 24.0.0
 - Hardware: Raspberry Pi 4
 
 ### Tests Effectués
+
 - [x] Unit tests: 15/15 passed
 - [x] Integration tests: 10/10 passed
 - [x] Manual tests: 20/20 passed
@@ -376,14 +383,17 @@ def extract_packet(self):
 - [x] Security: OK
 
 ### Résultats
+
 - Code coverage: 85%
 - Build time: 45s
 - Package size: 42MB
 
 ### Issues
+
 - None
 
 ### Conclusion
+
 ✅ Ready for deployment
 
 Date: 2024-12-06
@@ -455,6 +465,7 @@ pytest tests/ -v
 ## 📞 Support de Test
 
 Questions sur les tests ?
+
 - Lire ce document
 - Consulter les exemples dans `tests/`
 - Ouvrir une [issue GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/issues)

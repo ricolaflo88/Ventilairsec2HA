@@ -18,12 +18,12 @@ profile addon_ventilairsec2ha flags=(complain) {
   # Serial devices - USB
   /dev/ttyUSB* rw,
   /dev/ttyACM* rw,
-  
+
   # Serial devices - GPIO UART (Raspberry Pi)
   /dev/ttyAMA* rw,
   /dev/serial* rw,
   /dev/ttyS* rw,
-  
+
   # TTY access
   /dev/tty rw,
   /dev/pts/* rw,
@@ -32,7 +32,7 @@ profile addon_ventilairsec2ha flags=(complain) {
   /dev/full rw,
   /dev/random r,
   /dev/urandom r,
-  
+
   # GPIO access
   /sys/class/gpio/ r,
   /sys/class/gpio/** rw,
@@ -59,7 +59,7 @@ profile addon_ventilairsec2ha flags=(complain) {
   # Temporary files
   /tmp/ rw,
   /tmp/** rw,
-  
+
   # Proc
   /proc/*/stat r,
   /proc/*/status r,

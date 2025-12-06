@@ -3,16 +3,19 @@
 ## 📋 Prérequis
 
 ### Matériel
+
 - **Clé USB EnOcean** (TCM310 ou compatible)
+
   - Fréquence: 868.3 MHz
   - Protocole: ESP3
   - Vitesse: 57600 baud
-  
+
 - **Home Assistant OS** version 2023.12+
   - Accès SSH activé
   - Addon Mosquitto installé (optionnel, pour MQTT)
 
 ### Logiciels
+
 - Python 3.9+
 - pip3
 - Docker (fourni avec HA OS)
@@ -191,7 +194,7 @@ views:
             content: |
               # 🌬️ Contrôle VMI Purevent
               État du système de ventilation mécanique
-          
+
           - type: entities
             entities:
               - entity: number.vmi_purevent_speed
@@ -200,7 +203,7 @@ views:
                 name: "Température VMI"
               - entity: sensor.vmi_errors
                 name: "Erreurs VMI"
-          
+
           - type: gauge
             entity: sensor.co2_sensor
             min: 0
@@ -218,7 +221,7 @@ views:
               - from: 1500
                 color: red
                 to: 2000
-          
+
           - type: history-graph
             entities:
               - entity: sensor.co2_sensor
@@ -283,6 +286,7 @@ cat /data/ventilairsec2ha/logs.txt
 ### Activer le mode debug
 
 Configuration:
+
 ```json
 {
   "log_level": "debug"
@@ -290,6 +294,7 @@ Configuration:
 ```
 
 Consulter les logs:
+
 ```bash
 # Via Docker
 docker logs -f addon_ventilairsec2ha

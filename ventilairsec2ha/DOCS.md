@@ -69,26 +69,26 @@
 
 ### Spécifications Générales
 
-| Paramètre | Valeur |
-|-----------|--------|
-| Fréquence | 868.3 MHz |
-| Modulation | FSK |
-| Débit | 125 kbps |
-| Portée | ~30m en ligne de vue |
-| Protocole série | ESP3 (900-ESP3) |
-| Vitesse série | 57600 baud |
-| Format | 8 bits, No parity, 1 stop bit |
+| Paramètre       | Valeur                        |
+| --------------- | ----------------------------- |
+| Fréquence       | 868.3 MHz                     |
+| Modulation      | FSK                           |
+| Débit           | 125 kbps                      |
+| Portée          | ~30m en ligne de vue          |
+| Protocole série | ESP3 (900-ESP3)               |
+| Vitesse série   | 57600 baud                    |
+| Format          | 8 bits, No parity, 1 stop bit |
 
 ### Types de Télégrammes (RORG)
 
-| Code | Hex | Nom | Description |
-|------|-----|-----|-------------|
-| RPS | 0xF6 | Repeated Switch | Switch simple |
-| BS1 | 0xD5 | 1-byte Single Data | 1 byte de données |
-| BS4 | 0xA5 | 4-byte Variable | 4 bytes (capteurs) |
-| VLD | 0xB0 | Variable Length Data | Données variables |
-| MSC | 0xD1 | Manufacturer Specific | Spécifique fabricant |
-| UTE | 0xC6 | Universal Teach-In | Appairage apprentissage |
+| Code | Hex  | Nom                   | Description             |
+| ---- | ---- | --------------------- | ----------------------- |
+| RPS  | 0xF6 | Repeated Switch       | Switch simple           |
+| BS1  | 0xD5 | 1-byte Single Data    | 1 byte de données       |
+| BS4  | 0xA5 | 4-byte Variable       | 4 bytes (capteurs)      |
+| VLD  | 0xB0 | Variable Length Data  | Données variables       |
+| MSC  | 0xD1 | Manufacturer Specific | Spécifique fabricant    |
+| UTE  | 0xC6 | Universal Teach-In    | Appairage apprentissage |
 
 ---
 
@@ -143,6 +143,7 @@ Bits:  7  6  5  4  3  2  1  0
 ### 1. VMI Purevent Ventilairsec (D1-07-9F)
 
 **Informations Générales:**
+
 - RORG-FUNC-TYPE: D1-07-9F
 - Variante VMI: D1079-01-00 (Addr: 0x0421574F)
 - Variante Assistant: D1079-00-00 (Addr: 0x0422407D)
@@ -204,6 +205,7 @@ send_d1079(0x0421574F, [0x00, 0, 0, 0])  # Off
 ### 2. Capteur CO₂ (A5-09-04)
 
 **Informations:**
+
 - RORG: 0xA5 (4BS)
 - FUNC: 0x09 (Environmental Sensor)
 - TYPE: 0x04 (CO2 Sensor)
@@ -213,25 +215,27 @@ send_d1079(0x0421574F, [0x00, 0, 0, 0])  # Off
 
 ```
 Byte 0-3: Valeur CO₂ (big-endian)
-  
+
 Formule de conversion:
   co2_ppm = (raw_value * 2500) / 0xFFFFFFFF
-  
+
 Plage: 0-2500 ppm
 ```
 
 **Interprétation:**
+
 - 0 ppm: Erreur/Pas d'appareil
 - 400-600 ppm: Normal extérieur/bon
 - 600-1000 ppm: Acceptable
 - 1000-1500 ppm: Élevé, aération recommandée
-- >1500 ppm: Très élevé, action nécessaire
+- > 1500 ppm: Très élevé, action nécessaire
 
 ---
 
 ### 3. Capteur Température/Humidité (A5-04-01)
 
 **Informations:**
+
 - RORG: 0xA5 (4BS)
 - FUNC: 0x04 (Temperature/Humidity Sensor)
 - TYPE: 0x01 (Standard sensor)
@@ -252,6 +256,7 @@ Byte 2-3: Humidité
 ```
 
 **Interprétation:**
+
 - Température: 18-25°C optimal
 - Humidité: 40-60% optimal
 
@@ -358,7 +363,7 @@ sensor.co2_sensor:
   friendly_name: "CO₂ Pièce"
   unit_of_measurement: "ppm"
   device_class: "carbon_dioxide"
-  
+
 # Capteur Température
 sensor.temp_humidity_sensor_temperature:
   friendly_name: "Température Pièce"
@@ -386,6 +391,7 @@ number.vmi_purevent_speed:
 ### Activer les logs de debug
 
 Configuration:
+
 ```json
 {
   "log_level": "debug"
@@ -410,4 +416,3 @@ Configuration:
 - [ESP3 Protocol](https://www.enocean.com/esp3protocol)
 - [Home Assistant Add-ons Development](https://developers.home-assistant.io/docs/add-ons/)
 - [MQTT Specification](https://mqtt.org/)
-

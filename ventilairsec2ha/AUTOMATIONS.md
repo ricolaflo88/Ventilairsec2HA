@@ -20,7 +20,7 @@ Ajoutez ces blocs à votre `configuration.yaml` (ou utilisez l'interface UI) :
 
 ```yaml
 automation:
-  - id: 'alert_high_co2'
+  - id: "alert_high_co2"
     alias: "🚨 Alerte CO2 Élevé"
     description: "Notification quand CO2 > 800 ppm"
     trigger:
@@ -59,7 +59,7 @@ mqtt:
 
 ```yaml
 automation:
-  - id: 'increase_vmi_high_temp'
+  - id: "increase_vmi_high_temp"
     alias: "🌡️ Augmente Ventilation si Chaud"
     description: "Passe VMI à vitesse 3 si T > 25°C"
     trigger:
@@ -83,7 +83,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'reduce_vmi_night'
+  - id: "reduce_vmi_night"
     alias: "🌙 Réduit VMI la Nuit"
     description: "Passe VMI en vitesse 1 après 22h"
     trigger:
@@ -104,7 +104,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'vmi_boost_30min'
+  - id: "vmi_boost_30min"
     alias: "⚡ Boost Ventilation 30 min"
     description: "Passe VMI vitesse max pour 30 minutes"
     trigger:
@@ -133,7 +133,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'alert_low_humidity'
+  - id: "alert_low_humidity"
     alias: "💧 Alerte Humidité Basse"
     description: "Notification si humidité < 30%"
     trigger:
@@ -153,7 +153,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'alert_high_humidity'
+  - id: "alert_high_humidity"
     alias: "💦 Alerte Humidité Élevée"
     description: "Notification si humidité > 70%"
     trigger:
@@ -180,7 +180,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'alert_vmi_error'
+  - id: "alert_vmi_error"
     alias: "⚠️ Erreur VMI Détectée"
     description: "Notification si erreur sur VMI"
     trigger:
@@ -200,7 +200,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'alert_enocean_lost'
+  - id: "alert_enocean_lost"
     alias: "📡 Perte Connexion EnOcean"
     description: "Notification si aucun packet reçu depuis 5 min"
     trigger:
@@ -235,7 +235,7 @@ views:
             entities:
               - entity: mqtt.ventilairsec2ha_state_0x0421574f
                 name: "Vitesse Actuelle"
-          
+
           # CO2 Gauge
           - type: gauge
             title: "CO2"
@@ -247,7 +247,7 @@ views:
               yellow: 800
               red: 1200
             entity: mqtt.co2_purevent
-          
+
           # Temperature/Humidity
           - type: entities
             title: "🌡️ Climat Intérieur"
@@ -256,7 +256,7 @@ views:
                 name: "Température"
               - entity: mqtt.humidity_purevent
                 name: "Humidité"
-          
+
           # Control Buttons
           - type: button
             name: "💨 Boost 30min"
@@ -266,7 +266,7 @@ views:
               data:
                 topic: homeassistant/ventilairsec2ha/command
                 payload: '{"address": "0x0421574F", "speed": 4}'
-          
+
           - type: button
             name: "🌙 Mode Nuit"
             tap_action:
@@ -325,7 +325,7 @@ script:
 
 ```yaml
 automation:
-  - id: 'alert_co2_telegram'
+  - id: "alert_co2_telegram"
     alias: "📱 CO2 via Telegram"
     trigger:
       platform: mqtt
@@ -343,7 +343,7 @@ automation:
 
 ```yaml
 automation:
-  - id: 'boost_vmi_work_hours'
+  - id: "boost_vmi_work_hours"
     alias: "💼 Boost VMI Heures Bureau"
     description: "Augmente ventilation pendant heures de bureau"
     trigger:
@@ -367,6 +367,6 @@ automation:
 
 ---
 
-**Version** : 0.1.0  
-**Dernière mise à jour** : 2024  
+**Version** : 0.1.0
+**Dernière mise à jour** : 2024
 **Auteur** : Ventilairsec2HA Project

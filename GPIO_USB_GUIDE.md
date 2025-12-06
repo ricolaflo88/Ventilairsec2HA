@@ -7,11 +7,13 @@ Votre module EnOcean peut être connecté de deux façons :
 ### 1️⃣ GPIO UART (Raspberry Pi)
 
 **Avantages:**
+
 - ✅ Pas de port USB occupé
 - ✅ Connexion directe aux broches GPIO
 - ✅ Stable et fiable
 
 **Broches GPIO Standard:**
+
 ```
 ┌─────────────────────────────────────────┐
 │  Raspberry Pi GPIO Header               │
@@ -37,11 +39,13 @@ GND = Pin 6, 9, 14, 20, 25, 30, 34, 39
 ```
 
 **Ports disponibles:**
+
 - `/dev/ttyAMA0` - Primary UART (GPIO 14/15)
 - `/dev/serial0` - Alias pour ttyAMA0
 - `/dev/ttyS0` - Mini UART (GPIO 32/33, Pi 5 uniquement)
 
 **Vérifier la connexion:**
+
 ```bash
 ssh root@homeassistant.local
 
@@ -66,6 +70,7 @@ strace -e open,openat -e write ls /dev/ttyAMA0
 ```
 
 Ou mode auto-détection:
+
 ```json
 {
   "connection_mode": "auto",
@@ -79,16 +84,19 @@ Ou mode auto-détection:
 ### 2️⃣ USB (Adaptateur USB-UART)
 
 **Avantages:**
+
 - ✅ Plug & play facile
 - ✅ Portable et flexible
 - ✅ Multiple sticks possibles
 
 **Ports disponibles:**
+
 - `/dev/ttyUSB0` - Premier stick USB
 - `/dev/ttyUSB1` - Deuxième stick USB
 - `/dev/ttyACM0` - Adaptateur USB-ACM
 
 **Vérifier la connexion:**
+
 ```bash
 ssh root@homeassistant.local
 
@@ -127,6 +135,7 @@ Le mode `auto` détecte automatiquement :
 ```
 
 **Priorité de détection:**
+
 1. GPIO UART (`/dev/ttyAMA0`, `/dev/serial0`, `/dev/ttyS0`)
 2. USB (`/dev/ttyUSB*`, `/dev/ttyACM*`)
 3. Défaut: `/dev/ttyUSB0`
@@ -154,6 +163,7 @@ chmod 666 /dev/ttyUSB0
 Si `/dev/ttyAMA0` n'existe pas, vous devez activer UART:
 
 **Via SSH:**
+
 ```bash
 # Éditer la config
 sudo nano /boot/firmware/config.txt
@@ -170,6 +180,7 @@ sudo reboot
 ```
 
 **Via Home Assistant UI:**
+
 ```
 Paramètres > Système > Redémarrage
 ```
@@ -241,11 +252,11 @@ Alternative (GPIO 16/17 si reconfiguration):
 
 ```
        VCC ────────── 3V3 (Pin 1)
-       
+
 Stick  RXD ────────── GPIO 15 (Pin 10)
 Enocean
        TXD ────────── GPIO 14 (Pin 8)
-       
+
        GND ────────── GND (Pin 6, 9, 14, 20, 25, 30, 34, 39)
 ```
 
@@ -253,15 +264,15 @@ Enocean
 
 ## 📊 Comparaison GPIO vs USB
 
-| Critère | GPIO UART | USB |
-|---------|-----------|-----|
-| Installation | Câblage GPIO | Plug & Play |
-| Ports USB libres | ✅ Oui | ❌ Non |
-| Stabilité | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Configuration | Nécessite activation UART | Automatique |
-| Portabilité | Fixe (GPIO) | Mobile |
-| Coût adaptateur | Bas | Moyen |
-| Nombre de sticks | 1 | Plusieurs |
+| Critère          | GPIO UART                 | USB         |
+| ---------------- | ------------------------- | ----------- |
+| Installation     | Câblage GPIO              | Plug & Play |
+| Ports USB libres | ✅ Oui                    | ❌ Non      |
+| Stabilité        | ⭐⭐⭐⭐⭐                | ⭐⭐⭐⭐    |
+| Configuration    | Nécessite activation UART | Automatique |
+| Portabilité      | Fixe (GPIO)               | Mobile      |
+| Coût adaptateur  | Bas                       | Moyen       |
+| Nombre de sticks | 1                         | Plusieurs   |
 
 ---
 
@@ -270,6 +281,7 @@ Enocean
 ### Logs Addon
 
 Activer mode debug:
+
 ```json
 {
   "log_level": "debug"
@@ -277,6 +289,7 @@ Activer mode debug:
 ```
 
 Vérifier les logs:
+
 ```bash
 docker logs -f addon_ventilairsec2ha
 

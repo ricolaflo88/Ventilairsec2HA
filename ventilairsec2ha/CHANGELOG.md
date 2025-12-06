@@ -92,5 +92,5 @@ N/A - Première release
 
 ---
 
-Mise à jour : **2024-01-15**  
+Mise à jour : **2024-01-15**
 Maintenu par : **ricolaflo88**

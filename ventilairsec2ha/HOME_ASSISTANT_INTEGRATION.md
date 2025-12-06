@@ -30,12 +30,13 @@ Si vous utilisez un broker MQTT externe (par ex. test.mosquitto.org) :
 ### Depuis le Repository
 
 1. Ajoutez ce repository à Home Assistant :
+
    - **Paramètres → Modules complémentaires → Créer un module** (coin en bas à droite)
    - **Autre** (onglet en bas)
    - **Ajouter un repository** : `https://github.com/ricolaflo88/Ventilairsec2HA`
 
 2. Retournez à **Modules complémentaires → Parcourir les modules**
-3. Cherchez **Ventilairsec2HA** 
+3. Cherchez **Ventilairsec2HA**
 4. Cliquez sur le module et **Installer**
 
 ### Depuis un Repository Local
@@ -60,6 +61,7 @@ cp -r ventilairsec2ha /path/to/home/assistant/addons/
 3. Remplissez les champs obligatoires :
 
 **Pour MQTT Local (recommandé) :**
+
 ```json
 {
   "mqtt_host": "localhost",
@@ -74,6 +76,7 @@ cp -r ventilairsec2ha /path/to/home/assistant/addons/
 ```
 
 **Pour MQTT Externe :**
+
 ```json
 {
   "mqtt_host": "example.com",
@@ -92,6 +95,7 @@ cp -r ventilairsec2ha /path/to/home/assistant/addons/
 Pour un contrôle plus fin sur la connexion :
 
 **Pour GPIO (Raspberry Pi) :**
+
 ```json
 {
   "mqtt_host": "localhost",
@@ -103,6 +107,7 @@ Pour un contrôle plus fin sur la connexion :
 ```
 
 **Pour USB Dongle :**
+
 ```json
 {
   "mqtt_host": "localhost",
@@ -180,6 +185,7 @@ automation:
 ### Pas de Données Reçues
 
 Consultez le [Guide GPIO vs USB](GPIO_USB_GUIDE.md) pour :
+
 - Vérifier les permissions GPIO
 - Tester la détection automatique
 - Faire un diagnostic complet
@@ -191,6 +197,7 @@ Consultez le [Guide GPIO vs USB](GPIO_USB_GUIDE.md) pour :
 ```
 
 Exécutez le diagnostic :
+
 ```bash
 docker exec addon_ventilairsec2ha python3 /app/diagnostics.py
 ```
@@ -200,6 +207,7 @@ docker exec addon_ventilairsec2ha python3 /app/diagnostics.py
 ### Dashboard WebUI
 
 Accédez au dashboard web en visitant :
+
 - `http://homeassistant.local:8080`
 - Ou via l'URL fournie dans la description du module
 
@@ -227,6 +235,6 @@ curl -X POST http://homeassistant.local:8080/api/command \
 
 ---
 
-**Version** : 0.1.0  
-**Mise à jour** : $(date)  
+**Version** : 0.1.0
+**Mise à jour** : $(date)
 **Auteur** : Ventilairsec2HA Project

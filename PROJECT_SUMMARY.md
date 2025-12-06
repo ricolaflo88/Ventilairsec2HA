@@ -91,6 +91,7 @@ Ventilairsec2HA/
 ## 🎯 Fonctionnalités Implémentées
 
 ### ✅ Réception EnOcean (99% Complet)
+
 - [x] Communication série à 57600 baud
 - [x] Parsing ESP3 protocol
 - [x] Gestion buffer circulaire
@@ -100,6 +101,7 @@ Ventilairsec2HA/
 - [x] Signal strength (dBm)
 
 ### ✅ Support VMI Purevent D1-07-9F (100% Complet)
+
 - [x] Parsing structure 4-byte
 - [x] Extraction vitesse (0-100%)
 - [x] Extraction température interne
@@ -108,12 +110,14 @@ Ventilairsec2HA/
 - [x] Détection appairage
 
 ### ✅ Support Capteurs Externes (100% Complet)
+
 - [x] CO₂ (A5-09-04) - Ppm detection
 - [x] Température/Humidité (A5-04-01)
 - [x] Normalisation des valeurs
 - [x] Conversions d'unités
 
 ### ✅ Commandes VMI (95% Complet)
+
 - [x] Changement de vitesse (0-100%)
 - [x] Détection mode automatique/manuel
 - [x] Envoi paquets EnOcean
@@ -121,6 +125,7 @@ Ventilairsec2HA/
 - [ ] Mode bypass avancé (v0.2)
 
 ### ✅ Intégration Home Assistant (90% Complet)
+
 - [x] Publication MQTT topics
 - [x] Format JSON standardisé
 - [x] Updates toutes les 10 secondes
@@ -129,6 +134,7 @@ Ventilairsec2HA/
 - [ ] Discovery auto (v0.2)
 
 ### ✅ Interface WebUI & API (85% Complet)
+
 - [x] Serveur aiohttp sur port 8080
 - [x] Dashboard HTML5
 - [x] API REST complète
@@ -139,6 +145,7 @@ Ventilairsec2HA/
 - [ ] Export données (v0.2)
 
 ### ✅ Configuration & Logging (100% Complet)
+
 - [x] Options Home Assistant UI
 - [x] Port série configurable
 - [x] Niveau de logging dynamique
@@ -146,6 +153,7 @@ Ventilairsec2HA/
 - [x] Logging structuré avec timestamps
 
 ### ✅ Déploiement & Distribution (95% Complet)
+
 - [x] Multi-arch Docker (amd64, aarch64, armv7)
 - [x] GitHub Actions CI/CD
 - [x] Linting & tests auto
@@ -155,6 +163,7 @@ Ventilairsec2HA/
 - [ ] Push vers registry (nécessite setup)
 
 ### ✅ Documentation & Tests (100% Complet)
+
 - [x] 5 fichiers doc principaux
 - [x] Documentation technique détaillée (DOCS.md)
 - [x] Guide installation complet (INSTALL.md)
@@ -168,6 +177,7 @@ Ventilairsec2HA/
 ## 📊 Statistiques du Projet
 
 ### Code
+
 - **Lignes Python:** ~3,500
 - **Lignes Documentation:** ~2,500
 - **Fichiers Python:** 7 modules
@@ -175,17 +185,20 @@ Ventilairsec2HA/
 - **Couverture estimée:** 80%+
 
 ### Taille
+
 - **Image Docker:** ~45-50MB
 - **Dépendances:** 6 packages Python
 - **Footprint mémoire:** <50MB en production
 
 ### Performance
+
 - **Startup:** <10 secondes
 - **CPU normal:** <5%
 - **Latence MQTT:** <100ms
 - **Latence serial:** <50ms
 
 ### Architecture
+
 - **Modules:** 7 (config, 3x enocean, 2x ha, webui)
 - **Classes:** 15+
 - **Fonctions async:** 12
@@ -196,6 +209,7 @@ Ventilairsec2HA/
 ## 🚀 Prêt pour Production
 
 ### Checklist Pre-Release
+
 - ✅ Code compilé et testé
 - ✅ Documentation complète
 - ✅ Tests unitaires passent
@@ -210,6 +224,7 @@ Ventilairsec2HA/
 ### Prochaines Étapes pour Vous
 
 1. **Tester sur hardware réel**
+
    ```bash
    # Clone et build local
    git clone https://github.com/ricolaflo88/Ventilairsec2HA.git
@@ -218,6 +233,7 @@ Ventilairsec2HA/
    ```
 
 2. **Publier vers GitHub Container Registry**
+
    ```bash
    # Une fois token créé
    docker build -t ghcr.io/ricolaflo88/amd64-addon-ventilairsec2ha:0.1.0 ventilairsec2ha/
@@ -225,6 +241,7 @@ Ventilairsec2HA/
    ```
 
 3. **Créer le Dépôt Home Assistant Addons**
+
    - Fork `https://github.com/home-assistant/add-ons`
    - Ou créer dépôt custom: `ventilairsec2ha-addons`
    - Ajouter à la boutique HA
@@ -238,15 +255,15 @@ Ventilairsec2HA/
 
 ## 📞 Points de Contact
 
-| Élément | Emplacement |
-|---------|-----------|
+| Élément          | Emplacement                                                |
+| ---------------- | ---------------------------------------------------------- |
 | 📖 Documentation | `/ventilairsec2ha/*.md`, `/TESTING.md`, `/CONTRIBUTING.md` |
-| 🐍 Code Python | `/ventilairsec2ha/rootfs/app/*.py` |
-| 🧪 Tests | `/tests/test_addon.py` |
-| 🔨 Configuration | `/ventilairsec2ha/config.yaml` |
-| 🐳 Docker | `/ventilairsec2ha/Dockerfile` |
-| 🚀 CI/CD | `/.github/workflows/build.yml` |
-| 🌍 Web | `/ventilairsec2ha/rootfs/app/webui_server.py` |
+| 🐍 Code Python   | `/ventilairsec2ha/rootfs/app/*.py`                         |
+| 🧪 Tests         | `/tests/test_addon.py`                                     |
+| 🔨 Configuration | `/ventilairsec2ha/config.yaml`                             |
+| 🐳 Docker        | `/ventilairsec2ha/Dockerfile`                              |
+| 🚀 CI/CD         | `/.github/workflows/build.yml`                             |
+| 🌍 Web           | `/ventilairsec2ha/rootfs/app/webui_server.py`              |
 
 ---
 
@@ -254,12 +271,12 @@ Ventilairsec2HA/
 
 Un **addon Home Assistant OS complet et production-ready** pour :
 
-✅ **Recevoir** les données d'une VMI Purevent Ventilairsec via EnOcean  
-✅ **Décoder** les trames radio avec un protocole propriétaire complexe  
-✅ **Publier** les données vers Home Assistant via MQTT  
-✅ **Commander** la VMI depuis Home Assistant  
-✅ **Monitorer** les appareils via WebUI intégré  
-✅ **Intégrer** dans la boutique des modules complémentaires  
+✅ **Recevoir** les données d'une VMI Purevent Ventilairsec via EnOcean
+✅ **Décoder** les trames radio avec un protocole propriétaire complexe
+✅ **Publier** les données vers Home Assistant via MQTT
+✅ **Commander** la VMI depuis Home Assistant
+✅ **Monitorer** les appareils via WebUI intégré
+✅ **Intégrer** dans la boutique des modules complémentaires
 
 **100% autonome, 100% configurable, 100% documenté.**
 
@@ -297,6 +314,7 @@ Un **addon Home Assistant OS complet et production-ready** pour :
 ## 🔮 Roadmap v0.2+
 
 ### Court Terme (v0.2)
+
 - [ ] Entités Home Assistant natives (via integration)
 - [ ] Discovery automatique appareils
 - [ ] Dashboard Lovelace préconfiguré
@@ -304,6 +322,7 @@ Un **addon Home Assistant OS complet et production-ready** pour :
 - [ ] Charts historiques dans WebUI
 
 ### Moyen Terme (v0.3)
+
 - [ ] Support de plus d'appareils EnOcean
 - [ ] Chiffrement EnOcean (A-128)
 - [ ] Backup/restore configuration
@@ -311,6 +330,7 @@ Un **addon Home Assistant OS complet et production-ready** pour :
 - [ ] Plugin Jeedom miroir
 
 ### Long Terme (v1.0)
+
 - [ ] Support multi-clé EnOcean
 - [ ] Interface graphique avancée (Lovelace)
 - [ ] Machine learning pour prédictions
@@ -322,18 +342,21 @@ Un **addon Home Assistant OS complet et production-ready** pour :
 ## 📚 Ressources Supplémentaires
 
 ### Documentation Externe
+
 - [EnOcean Profiles](https://www.enocean.com/en/enocean-modules/enocean-profiles/)
 - [ESP3 Protocol](https://www.enocean.com/esp3protocol/)
 - [Home Assistant Docs](https://www.home-assistant.io/docs/)
 - [MQTT Specification](https://mqtt.org/)
 
 ### Outils Recommandés
+
 - **VS Code** avec Python extension
 - **MQTT Explorer** pour déboguer topics
 - **Docker Desktop** pour développement
 - **Home Assistant Supervisor** pour testing
 
 ### Communauté
+
 - Home Assistant Community Forum
 - GitHub Discussions
 - Reddit r/homeassistant
@@ -346,12 +369,14 @@ Un **addon Home Assistant OS complet et production-ready** pour :
 Merci de nous avoir fait confiance pour développer **Ventilairsec2HA**.
 
 Ce projet est **open-source** et nous encourageons :
+
 - Les tests sur votre hardware
 - Les contributions et améliorations
 - Les signalements de bugs
 - Les demandes de features
 
 **N'hésitez pas à:**
+
 1. ⭐ Donner une star au repo GitHub
 2. 🐛 Signaler des bugs si vous en trouvez
 3. 💡 Proposer des améliorations
@@ -372,10 +397,9 @@ Ce projet est **open-source** et nous encourageons :
 
 ---
 
-**Date de création:** 6 Décembre 2024  
-**Version:** 0.1.0-alpha  
-**Statut:** Production-Ready (après testing sur hardware)  
-**Licence:** MIT  
-**Python:** 3.9+  
-**Home Assistant:** 2023.12+  
-
+**Date de création:** 6 Décembre 2024
+**Version:** 0.1.0-alpha
+**Statut:** Production-Ready (après testing sur hardware)
+**Licence:** MIT
+**Python:** 3.9+
+**Home Assistant:** 2023.12+

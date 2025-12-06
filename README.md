@@ -7,7 +7,7 @@
 
 Addon Home Assistant OS pour contrôler une **VMI Purevent Ventilairsec** via le protocole **EnOcean**.
 
-Cet addon reproduit la fonctionnalité du plugin Jeedom *Ventilairsec* en intégrant le protocole de communication *EnOcean*, permettant à Home Assistant de communiquer directement avec votre VMI et ses capteurs associés.
+Cet addon reproduit la fonctionnalité du plugin Jeedom _Ventilairsec_ en intégrant le protocole de communication _EnOcean_, permettant à Home Assistant de communiquer directement avec votre VMI et ses capteurs associés.
 
 ## 🚀 Démarrage Rapide
 
@@ -22,6 +22,7 @@ Ajouter: https://github.com/ricolaflo88/Ventilairsec2HA
 ### 2. Configuration Minimale
 
 #### Option 1: GPIO UART (Raspberry Pi - Recommandé)
+
 ```json
 {
   "connection_mode": "gpio",
@@ -33,6 +34,7 @@ Ajouter: https://github.com/ricolaflo88/Ventilairsec2HA
 ```
 
 #### Option 2: USB
+
 ```json
 {
   "connection_mode": "usb",
@@ -44,6 +46,7 @@ Ajouter: https://github.com/ricolaflo88/Ventilairsec2HA
 ```
 
 #### Option 3: Auto-Détection (Flexible)
+
 ```json
 {
   "connection_mode": "auto",
@@ -83,24 +86,29 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 - 📊 **Recevoir et afficher** tous les états et mesures
 - 💾 **Enregistrer les données** localement
 - 🏠 **S'intégrer nativement** dans Home Assistant
+
 ---
 
 ## 📦 Appareils Supportés
 
 ### VMI Ventilairsec Purevent (D1-07-9F)
+
 - **Adresse:** `0x0421574F`
 - **Commandes:** Vitesse, mode, arrêt, consultation d'état
 - **Capteurs internes:** Température, erreurs
 
 ### Capteur CO₂ (A5-09-04)
+
 - **Adresse:** `0x81003227`
 - **Mesure:** CO₂ en ppm (0-2500)
 
 ### Capteur Température + Humidité (A5-04-01)
+
 - **Adresse:** `0x810054F5`
 - **Mesures:** Température (°C) et Humidité (%)
 
 ### Assistant Ventilairsec / Télécommande (D1-07-9F)
+
 - **Adresse:** `0x0422407D`
 
 ---
@@ -108,6 +116,7 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 ## ✨ Fonctionnalités
 
 ### ✅ Implémentation Actuelle
+
 - [x] Pile EnOcean complète (réception/parsing/envoi)
 - [x] Décodage des trames D1-07-9F (VMI Purevent)
 - [x] Support des capteurs 4BS (A5-04-xx)
@@ -117,6 +126,7 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 - [x] Logging avancé
 
 ### 📋 En Développement
+
 - [ ] Entités Home Assistant natives
 - [ ] Dashboard Lovelace préconfiguré
 - [ ] Tests complets hardware
@@ -154,14 +164,14 @@ git clone https://github.com/ricolaflo88/Ventilairsec2HA.git
 
 ### Paramètres Disponibles
 
-| Paramètre | Type | Défaut | Description |
-|-----------|------|--------|-------------|
-| `connection_mode` | choice | `auto` | Mode connexion (auto\|gpio\|usb) |
-| `serial_port` | string | `auto` | Port série (/dev/ttyAMA0, /dev/ttyUSB0, auto) |
-| `log_level` | choice | `info` | Niveau de logging (debug\|info\|warning\|error) |
-| `enable_mqtt` | boolean | `true` | Activer publication MQTT |
-| `mqtt_broker` | string | `mosquitto` | Serveur MQTT |
-| `mqtt_port` | integer | `1883` | Port MQTT |
+| Paramètre         | Type    | Défaut      | Description                                     |
+| ----------------- | ------- | ----------- | ----------------------------------------------- |
+| `connection_mode` | choice  | `auto`      | Mode connexion (auto\|gpio\|usb)                |
+| `serial_port`     | string  | `auto`      | Port série (/dev/ttyAMA0, /dev/ttyUSB0, auto)   |
+| `log_level`       | choice  | `info`      | Niveau de logging (debug\|info\|warning\|error) |
+| `enable_mqtt`     | boolean | `true`      | Activer publication MQTT                        |
+| `mqtt_broker`     | string  | `mosquitto` | Serveur MQTT                                    |
+| `mqtt_port`       | integer | `1883`      | Port MQTT                                       |
 
 ### Exemple Configuration Complète
 
@@ -181,6 +191,7 @@ git clone https://github.com/ricolaflo88/Ventilairsec2HA.git
 ## 🌐 WebUI et API
 
 ### Accès WebUI
+
 - **URL:** `http://<home-assistant>:8080`
 - **Affiche:** État du système, appareils, logs
 
@@ -295,6 +306,7 @@ pylint ventilairsec2ha/rootfs/app/
 MIT - Voir [LICENSE](LICENSE)
 
 Crédits:
+
 - Base addon: Home Assistant example addons
 - Protocole EnOcean: spécifications officielles
 - Logique Ventilairsec: adaptée du plugin Jeedom
@@ -311,6 +323,7 @@ Crédits:
 ## 📞 Support
 
 Pour les questions ou problèmes :
+
 - 🐛 [Issues GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/issues)
 - 📚 [Documentation](ventilairsec2ha/DOCS.md)
 - 🌐 [Home Assistant Community](https://community.home-assistant.io/)
@@ -334,4 +347,3 @@ Pour les questions ou problèmes :
 ⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une star ! ⭐
 
 </div>
-

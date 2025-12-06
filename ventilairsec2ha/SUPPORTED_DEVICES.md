@@ -4,14 +4,15 @@
 
 ### 1. 🌬️ VMI Purevent Ventilairsec
 
-**Type** : Variante propriétaire D1-07-9F  
-**Adresse Exemple** : `0x0421574F`  
-**Fabricant** : Purevent  
-**Protocole** : 4 octets manufacturier  
+**Type** : Variante propriétaire D1-07-9F
+**Adresse Exemple** : `0x0421574F`
+**Fabricant** : Purevent
+**Protocole** : 4 octets manufacturier
 
 #### Informations
 
 La VMI Purevent Ventilairsec est une unité de ventilation mécanique contrôlée (VMC) avec :
+
 - Contrôle de vitesse (5 niveaux : 0, 1, 2, 3, 4)
 - Détection de pannes
 - Communication par radio EnOcean 868 MHz
@@ -35,13 +36,13 @@ Octets 2-3 : Données Supplémentaires
 
 #### Plages de Vitesse
 
-| Vitesse | Valeur | État |
-|---------|--------|------|
-| Arrêt | 0 | Ventilateur off |
-| Basse | 1 | ~40% puissance |
-| Moyenne | 2 | ~60% puissance |
-| Haute | 3 | ~80% puissance |
-| Turbo/Boost | 4 | 100% puissance |
+| Vitesse     | Valeur | État            |
+| ----------- | ------ | --------------- |
+| Arrêt       | 0      | Ventilateur off |
+| Basse       | 1      | ~40% puissance  |
+| Moyenne     | 2      | ~60% puissance  |
+| Haute       | 3      | ~80% puissance  |
+| Turbo/Boost | 4      | 100% puissance  |
 
 #### Commandes Possibles
 
@@ -90,10 +91,10 @@ homeassistant/ventilairsec2ha/state/0x0421574F
 
 ### 2. 📊 Capteur CO₂
 
-**Type** : RfP / A5-09-04 (4BS)  
-**Adresse Exemple** : `0x81003227`  
-**Fabricant** : Enocean Generics (ELTAKO, Therkon, etc.)  
-**Protocole** : 4 octets (CMS/Variateur)  
+**Type** : RfP / A5-09-04 (4BS)
+**Adresse Exemple** : `0x81003227`
+**Fabricant** : Enocean Generics (ELTAKO, Therkon, etc.)
+**Protocole** : 4 octets (CMS/Variateur)
 
 #### Spécifications
 
@@ -150,10 +151,10 @@ homeassistant/ventilairsec2ha/state/0x81003227
 
 ### 3. 🌡️ Capteur Température / Humidité
 
-**Type** : A5-04-01 (4BS)  
-**Adresse Exemple** : `0x810054F5`  
-**Fabricant** : Generic EnOcean  
-**Protocole** : 4 octets (4BS - température et humidité)  
+**Type** : A5-04-01 (4BS)
+**Adresse Exemple** : `0x810054F5`
+**Fabricant** : Generic EnOcean
+**Protocole** : 4 octets (4BS - température et humidité)
 
 #### Spécifications
 
@@ -223,19 +224,19 @@ homeassistant/ventilairsec2ha/state/0x810054F5
 
 ### 4. 🎮 Télécommande Assistant (Variante D1-07-9F)
 
-**Type** : Variante D1-07-9F Telecommande  
-**Adresse Exemple** : `0x0422407D`  
-**Protocole** : Compatible VMI Purevent  
+**Type** : Variante D1-07-9F Telecommande
+**Adresse Exemple** : `0x0422407D`
+**Protocole** : Compatible VMI Purevent
 
 #### Boutons Disponibles
 
-| Bouton | Code | Action |
-|--------|------|--------|
-| On/Off | 0x01 | Allume/Éteint |
-| Vitesse + | 0x02 | Augmente vitesse |
-| Vitesse - | 0x03 | Réduit vitesse |
+| Bouton       | Code | Action             |
+| ------------ | ---- | ------------------ |
+| On/Off       | 0x01 | Allume/Éteint      |
+| Vitesse +    | 0x02 | Augmente vitesse   |
+| Vitesse -    | 0x03 | Réduit vitesse     |
 | Boost 30 min | 0x04 | Vitesse max 30 min |
-| Auto | 0x05 | Mode auto (CO₂) |
+| Auto         | 0x05 | Mode auto (CO₂)    |
 
 #### Topics MQTT Reçus
 
@@ -259,7 +260,7 @@ homeassistant/ventilairsec2ha/state/0x0422407D
 
 ### 🔄 En Développement (v0.2)
 
-- **A5-07-01** : Variateur de lumière 
+- **A5-07-01** : Variateur de lumière
 - **A5-08-01** : Capteur de luminosité
 - **A5-13-01** : Capteur pression atmosphérique
 - **D2-01-0C** : Détecteur de fuite d'eau
@@ -278,6 +279,7 @@ homeassistant/ventilairsec2ha/state/0x0422407D
 Si vous avez un appareil EnOcean non supporté, veuillez :
 
 1. **Créer une Issue** : https://github.com/ricolaflo88/Ventilairsec2HA/issues
+
    - Incluez le RORG et les données du paquet
    - Décrivez les données envoyées
 
@@ -358,6 +360,6 @@ curl -X POST http://homeassistant.local:8080/api/command \
 
 ---
 
-**Version** : 0.1.0  
-**Mise à jour** : 2024  
+**Version** : 0.1.0
+**Mise à jour** : 2024
 **Auteur** : Ventilairsec2HA Project

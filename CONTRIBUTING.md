@@ -11,11 +11,13 @@ Ce projet adopte le Covenant Code of Conduct. Tous les contributeurs sont attend
 ### 1. Signaler des Bugs
 
 **Avant de signaler un bug :**
+
 - Vérifier que le bug n'a pas déjà été signalé
 - Consulter la [documentation](ventilairsec2ha/DOCS.md)
 - Vérifier les configurations recommandées
 
 **Pour signaler un bug :**
+
 1. Aller à [Issues GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/issues)
 2. Cliquer sur **New Issue > Bug Report**
 3. Remplir tous les champs:
@@ -28,6 +30,7 @@ Ce projet adopte le Covenant Code of Conduct. Tous les contributeurs sont attend
 ### 2. Proposer des Améliorations
 
 **Pour une nouvelle fonctionnalité :**
+
 1. Aller à [Issues GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/issues)
 2. Cliquer sur **New Issue > Feature Request**
 3. Décrire:
@@ -60,6 +63,7 @@ pre-commit install
 #### Code Style
 
 **Python (PEP 8):**
+
 ```bash
 # Format avec Black
 black ventilairsec2ha/rootfs/app/
@@ -72,6 +76,7 @@ pylint ventilairsec2ha/rootfs/app/
 ```
 
 **YAML:**
+
 ```bash
 # Valider YAML
 yamllint -d relaxed ventilairsec2ha/config.yaml
@@ -93,11 +98,13 @@ pytest --cov=ventilairsec2ha tests/
 #### Workflow de Pull Request
 
 1. **Créer une branche feature**
+
    ```bash
    git checkout -b feature/descriptive-name
    ```
 
 2. **Développer et tester**
+
    ```bash
    # Votre développement...
    git add .
@@ -105,6 +112,7 @@ pytest --cov=ventilairsec2ha tests/
    ```
 
 3. **Soumettre la PR**
+
    - Pousser vers votre fork: `git push origin feature/descriptive-name`
    - Ouvrir une Pull Request sur le repo principal
    - Remplir le template de PR complet
@@ -117,12 +125,14 @@ pytest --cov=ventilairsec2ha tests/
 ### 4. Améliorer la Documentation
 
 **Documentation à mettre à jour :**
+
 - [README.md](README.md) - Vue d'ensemble
 - [ventilairsec2ha/README.md](ventilairsec2ha/README.md) - Addon
 - [ventilairsec2ha/DOCS.md](ventilairsec2ha/DOCS.md) - Technique
 - [ventilairsec2ha/INSTALL.md](ventilairsec2ha/INSTALL.md) - Installation
 
 **Pour améliorer la doc :**
+
 1. Fork et créer une branche
 2. Éditer les fichiers Markdown
 3. Vérifier la syntaxe: `yamllint` et `markdownlint`
@@ -143,6 +153,7 @@ Suivre le format [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
+
 - `feat`: Nouvelle fonctionnalité
 - `fix`: Correction de bug
 - `docs`: Changements de documentation
@@ -153,6 +164,7 @@ Suivre le format [Conventional Commits](https://www.conventionalcommits.org/):
 - `chore`: Maintenance, dependencies, etc.
 
 **Exemples:**
+
 ```
 feat(packet): add support for new RORG type A5-10-01
 fix(mqtt): fix connection timeout on broker unavailable
@@ -169,7 +181,7 @@ test(device): add unit tests for device manager
 - [ ] Le linting passe: `flake8 ventilairsec2ha/rootfs/app/`
 - [ ] La documentation est à jour
 - [ ] Le CHANGELOG.md est mis à jour
-- [ ] Pas de fichiers inutiles committés (.pyc, __pycache__, etc.)
+- [ ] Pas de fichiers inutiles committés (.pyc, **pycache**, etc.)
 - [ ] Le commit message est explicite
 - [ ] La branche est à jour avec `main`: `git rebase main`
 
@@ -205,31 +217,38 @@ Ventilairsec2HA/
 ### Modules Principaux
 
 #### `config.py`
+
 - Charge configuration depuis `/data/options.json`
 - Gère les paramètres et logging
 
 #### `enocean_constants.py`
+
 - Constantes EnOcean (RORG, adresses, etc.)
 - Définitions des appareils
 
 #### `enocean_packet.py`
+
 - Parsing et création des paquets ESP3
 - Gestion du buffer
 
 #### `enocean_communicator.py`
+
 - Communication série
 - Envoi/réception des paquets
 
 #### `ventilairsec_manager.py`
+
 - Gestion de la VMI et capteurs
 - Décodage des trames
 - État des appareils
 
 #### `home_assistant_integration.py`
+
 - Publication MQTT
 - Topics et payloads
 
 #### `webui_server.py`
+
 - Serveur aiohttp
 - API REST et dashboard
 
@@ -252,20 +271,20 @@ from enocean_packet import EnOceanPacket
 
 class TestMyFeature(unittest.TestCase):
     """Test ma nouvelle fonctionnalité"""
-    
+
     def setUp(self):
         """Setup avant chaque test"""
         pass
-    
+
     def tearDown(self):
         """Cleanup après chaque test"""
         pass
-    
+
     def test_something(self):
         """Test d'une fonction spécifique"""
         result = my_function()
         self.assertEqual(result, expected_value)
-    
+
     def test_error_handling(self):
         """Test gestion d'erreurs"""
         with self.assertRaises(ValueError):
@@ -280,18 +299,21 @@ if __name__ == '__main__':
 ## 📚 Ressources pour Contribueurs
 
 ### Documentation
+
 - [EnOcean Specification](https://www.enocean.com/en/enocean-modules/enocean-profiles/)
 - [ESP3 Protocol](https://www.enocean.com/esp3protocol/)
 - [Home Assistant Add-on Dev](https://developers.home-assistant.io/docs/add-ons/)
 - [MQTT Protocol](https://mqtt.org/)
 
 ### Outils
+
 - [Python 3.9+](https://www.python.org/)
 - [Docker](https://www.docker.com/)
 - [Git](https://git-scm.com/)
 - [VS Code](https://code.visualstudio.com/)
 
 ### Pour Apprendre
+
 - Lire le code existant
 - Consulter les issues ouvertes
 - Participer aux discussions
@@ -308,6 +330,7 @@ if __name__ == '__main__':
 Envoyer un email à: ricolaflo88@users.noreply.github.com
 
 Incluire:
+
 - Description de la vulnérabilité
 - Étapes pour reproduire
 - Impact potentiel
@@ -316,6 +339,7 @@ Incluire:
 ### Autres Issues
 
 Créer une issue GitHub avec:
+
 - Titre clair et descriptif
 - Description détaillée
 - Reproduction steps si applicable
@@ -336,18 +360,21 @@ Créer une issue GitHub avec:
 ## ✅ Standards de Qualité
 
 ### Code Quality
+
 - ✅ Tests: >80% couverture
 - ✅ Linting: 0 erreurs Pylint
 - ✅ Type hints: Recommandés
 - ✅ Documentation: Docstrings pour toutes les fonctions
 
 ### Performance
+
 - ✅ CPU: <10% en usage normal
 - ✅ Mémoire: <100MB
 - ✅ Startup: <10 secondes
 - ✅ Latence MQTT: <1 seconde
 
 ### Sécurité
+
 - ✅ Pas de hardcoding de secrets
 - ✅ Validation des entrées
 - ✅ Permissions minimales
@@ -358,6 +385,7 @@ Créer une issue GitHub avec:
 ## 📅 Roadmap
 
 Pour le roadmap du projet, voir:
+
 - [Milestones GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/milestones)
 - [Projects GitHub](https://github.com/ricolaflo88/Ventilairsec2HA/projects)
 
@@ -368,6 +396,7 @@ Pour le roadmap du projet, voir:
 Merci à tous les contributeurs qui aident à améliorer ce projet !
 
 **Contributeurs:**
+
 - Vous ! 👋
 
 ---

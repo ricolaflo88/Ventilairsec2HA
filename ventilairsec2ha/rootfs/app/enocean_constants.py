@@ -36,7 +36,7 @@ FUNC_TYPES: Dict[str, Dict[int, str]] = {
 # Device definitions with EnOcean chip ID format: RORG-FUNC-TYPE
 class EnOceanDevices:
     """Known EnOcean device types"""
-    
+
     # VMI Purevent Ventilairsec
     VMI_PUREVENT = {
         'rorg': 0xD1,
@@ -48,7 +48,7 @@ class EnOceanDevices:
             '00': 'Assistant (Remote Control)'  # 0x0422407D
         }
     }
-    
+
     # Environmental sensors
     CO2_SENSOR = {
         'rorg': 0xA5,
@@ -56,7 +56,7 @@ class EnOceanDevices:
         'type': 0x04,
         'name': 'CO2 Sensor'
     }
-    
+
     TEMP_HUMIDITY_SENSOR = {
         'rorg': 0xA5,
         'func': 0x04,
