@@ -1,0 +1,40 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Ventilairsec2HA
+version: "0.1.0"
+slug: ventilairsec2ha
+description: Contrôle de VMI Purevent Ventilairsec via EnOcean
+url: "https://github.com/ricolaflo88/Ventilairsec2HA"
+codeowners:
+  - "@ricolaflo88"
+authors:
+  - "ricolaflo88"
+category: integration
+arch:
+  - aarch64
+  - amd64
+  - armv7
+init: false
+map:
+  - share:rw
+  - config:rw
+ports:
+  8080/tcp: 8080
+privileged:
+  - /dev
+options:
+  connection_mode: "auto"
+  serial_port: "auto"
+  log_level: "info"
+  enable_mqtt: true
+  mqtt_broker: "mosquitto"
+  mqtt_port: 1883
+schema:
+  connection_mode: "list(auto|usb|gpio)"
+  serial_port: "str"
+  log_level: "list(debug|info|warning|error)"
+  enable_mqtt: "bool?"
+  mqtt_broker: "str?"
+  mqtt_port: "int?"
+image: "ghcr.io/ricolaflo88/{arch}-addon-ventilairsec2ha"
+boot: auto
+startup: services

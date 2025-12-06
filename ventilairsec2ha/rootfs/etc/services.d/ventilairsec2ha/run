@@ -1,0 +1,8 @@
+#!/bin/sh
+exec 2>&1
+
+# Wait for configuration to be available
+sleep 1
+
+# Start the application
+exec python3 -u /app/run.py

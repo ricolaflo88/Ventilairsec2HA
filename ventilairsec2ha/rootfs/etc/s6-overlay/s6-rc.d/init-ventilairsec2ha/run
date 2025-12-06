@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+CONFIG_PATH="/data/options.json"
+SHARE_PATH="/share/ventilairsec2ha"
+
+# Create directories
+mkdir -p "$SHARE_PATH"
+mkdir -p "/app"
+
+# Copy application files if not already present
+if [ ! -f "/app/run.py" ]; then
+    cp -r /app/* /app/ 2>/dev/null || true
+fi
+
+# Start the main application
+exec python3 -u /app/run.py

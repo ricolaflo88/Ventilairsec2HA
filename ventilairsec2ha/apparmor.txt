@@ -1,0 +1,71 @@
+#include <tunables/global>
+
+profile addon_ventilairsec2ha flags=(complain) {
+  #include <abstractions/base>
+
+  # Capabilities
+  capability net_bind_service,
+  capability sys_admin,
+  capability sys_nice,
+  capability sys_ptrace,
+
+  # Network
+  network inet dgram,
+  network inet stream,
+  network unix dgram,
+  network unix stream,
+
+  # Serial devices - USB
+  /dev/ttyUSB* rw,
+  /dev/ttyACM* rw,
+  
+  # Serial devices - GPIO UART (Raspberry Pi)
+  /dev/ttyAMA* rw,
+  /dev/serial* rw,
+  /dev/ttyS* rw,
+  
+  # TTY access
+  /dev/tty rw,
+  /dev/pts/* rw,
+  /dev/null rw,
+  /dev/zero rw,
+  /dev/full rw,
+  /dev/random r,
+  /dev/urandom r,
+  
+  # GPIO access
+  /sys/class/gpio/ r,
+  /sys/class/gpio/** rw,
+  /dev/mem rw,
+  /dev/gpiomem rw,
+
+  # Data and config
+  /data/ r,
+  /data/** rw,
+  /share/ r,
+  /share/** rw,
+  /share/ventilairsec2ha/ rw,
+  /share/ventilairsec2ha/** rw,
+
+  # App directory
+  /app/ r,
+  /app/** r,
+
+  # Python
+  /usr/bin/python3 rix,
+  /usr/lib/python* r,
+  /usr/lib/python*/** r,
+
+  # Temporary files
+  /tmp/ rw,
+  /tmp/** rw,
+  
+  # Proc
+  /proc/*/stat r,
+  /proc/*/status r,
+
+  # Deny access to sensitive areas
+  deny /root/** rw,
+  deny /etc/shadow rwk,
+  deny /etc/gshadow rwk,
+}

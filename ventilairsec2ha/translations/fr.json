@@ -1,0 +1,35 @@
+{
+  "configuration": {
+    "title": "Configuration Ventilairsec2HA",
+    "description": "Configurer l'addon Ventilairsec2HA",
+    "step": {
+      "user": {
+        "title": "Configuration",
+        "data": {
+          "serial_port": "Port série",
+          "log_level": "Niveau de journal",
+          "enable_mqtt": "Activer MQTT",
+          "mqtt_broker": "Serveur MQTT",
+          "mqtt_port": "Port MQTT"
+        }
+      }
+    },
+    "error": {
+      "serial_port_not_found": "Port série non trouvé",
+      "mqtt_connection_failed": "Échec de la connexion MQTT"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "serial_port": "Port série",
+          "log_level": "Niveau de journal",
+          "enable_mqtt": "Activer MQTT",
+          "mqtt_broker": "Serveur MQTT",
+          "mqtt_port": "Port MQTT"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Finish script - cleanup when addon stops
+
+echo "Cleaning up Ventilairsec2HA addon..."
+exit 0
