@@ -21,20 +21,30 @@ ports:
   8080/tcp: 8080
 privileged:
   - /dev
-options:
-  connection_mode: "auto"
-  serial_port: "auto"
-  log_level: "info"
-  enable_mqtt: true
-  mqtt_broker: "mosquitto"
-  mqtt_port: 1883
-schema:
-  connection_mode: "list(auto|usb|gpio)"
-  serial_port: "str"
-  log_level: "list(debug|info|warning|error)"
-  enable_mqtt: "bool?"
-  mqtt_broker: "str?"
-  mqtt_port: "int?"
 image: "ghcr.io/ricolaflo88/{arch}-addon-ventilairsec2ha"
 boot: auto
 startup: services
+
+options:
+  connection_mode: auto
+  serial_port: auto
+  log_level: info
+  enable_mqtt: true
+  mqtt_broker: mosquitto
+  mqtt_port: 1883
+  mqtt_username: ""
+  mqtt_password: ""
+  mqtt_retain: true
+  webui_port: 8080
+
+schema:
+  connection_mode: list(auto|usb|gpio)?
+  serial_port: str?
+  log_level: list(debug|info|warning|error)?
+  enable_mqtt: bool?
+  mqtt_broker: str?
+  mqtt_port: int(1024,65535)?
+  mqtt_username: str?
+  mqtt_password: str?
+  mqtt_retain: bool?
+  webui_port: int(1024,65535)?
