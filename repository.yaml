@@ -2,3 +2,9 @@
 name: Ventilairsec2HA Repository
 url: "https://github.com/ricolaflo88/Ventilairsec2HA"
 maintainer: ricolaflo88 <ricolaflo88@users.noreply.github.com>
+addons:
+  ventilairsec2ha:
+    url: https://github.com/ricolaflo88/Ventilairsec2HA/tree/main/ventilairsec2ha
+    target: ventilairsec2ha
+    title: Ventilairsec2HA
+    description: Contrôle de VMI Purevent Ventilairsec via EnOcean
