@@ -3,11 +3,11 @@ name: Ventilairsec2HA
 version: "0.1.0"
 slug: ventilairsec2ha
 description: Contrôle de VMI Purevent Ventilairsec via EnOcean et MQTT
-url: "https://github.com/ricolaflo88/Ventilairsec2HA"
+url: https://github.com/ricolaflo88/Ventilairsec2HA
 codeowners:
   - "@ricolaflo88"
 authors:
-  - "ricolaflo88"
+  - ricolaflo88
 category: integration
 arch:
   - aarch64
@@ -21,7 +21,7 @@ ports:
   8080/tcp: 8080
 privileged:
   - /dev
-image: "ghcr.io/ricolaflo88/{arch}-ventilairsec2ha"
+image: ghcr.io/ricolaflo88/{arch}-ventilairsec2ha
 boot: auto
 startup: application
 
@@ -41,14 +41,9 @@ schema:
   mqtt_username: str
   mqtt_password: str
   mqtt_retain: bool
-  log_level: list(DEBUG|INFO|WARNING|ERROR)
-  connection_mode: list(auto|gpio|usb)
+  log_level: "list(DEBUG|INFO|WARNING|ERROR)"
+  connection_mode: "list(auto|gpio|usb)"
   serial_port: str
-  log_level: info
-  enable_mqtt: true
-  mqtt_broker: mosquitto
-  mqtt_port: 1883
-  mqtt_username: ""
   mqtt_password: ""
   mqtt_retain: true
   webui_port: 8080
