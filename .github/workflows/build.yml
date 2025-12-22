@@ -25,10 +25,13 @@ jobs:
         include:
           - arch: amd64
             platforms: linux/amd64
+            build_from: ghcr.io/home-assistant/amd64-base:3.19
           - arch: aarch64
             platforms: linux/aarch64
+            build_from: ghcr.io/home-assistant/aarch64-base:3.19
           - arch: armv7
             platforms: linux/arm/v7
+            build_from: ghcr.io/home-assistant/armv7-base:3.19
 
     steps:
       - name: Checkout repository
@@ -56,6 +59,8 @@ jobs:
           platforms: ${{ matrix.platforms }}
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ matrix.arch }}-ventilairsec2ha:latest
+          build-args: |
+            BUILD_FROM=${{ matrix.build_from }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
