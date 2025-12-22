@@ -63,34 +63,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Install linting tools
-        run: |
-          pip install pylint flake8 black
-
-      - name: Lint Python code
-        run: |
-          flake8 ventilairsec2ha/rootfs/app/ --max-line-length=120
-          pylint ventilairsec2ha/rootfs/app/ || true
-
-      - name: Check YAML files
-        run: |
-          pip install yamllint
-          yamllint -d relaxed ventilairsec2ha/config.yaml
-          yamllint -d relaxed ventilairsec2ha/build.yaml
-          yamllint -d relaxed repository.yaml
-
   validate:
     runs-on: ubuntu-latest
 

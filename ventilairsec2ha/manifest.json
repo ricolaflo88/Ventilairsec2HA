@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "slug": "ventilairsec2ha",
+  "name": "Ventilairsec2HA",
+  "description": "Integration for Ventilairsec2 devices via EnOcean with MQTT",
+  "url": "https://github.com/ricolaflo88/Ventilairsec2HA",
+  "codeowners": ["@ricolaflo88"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+    "8080/tcp": "WebUI"
+  },
+  "ports_description": {
+    "8080/tcp": "Web interface for Ventilairsec2HA"
+  },
+  "options": {
+    "mqtt_host": "localhost",
+    "mqtt_port": 1883,
+    "mqtt_username": "",
+    "mqtt_password": "",
+    "mqtt_retain": true,
+    "log_level": "INFO",
+    "connection_mode": "auto",
+    "serial_port": "auto"
+  },
+  "schema": {
+    "mqtt_host": "str",
+    "mqtt_port": "int",
+    "mqtt_username": "str",
+    "mqtt_password": "str",
+    "mqtt_retain": "bool",
+    "log_level": "list(DEBUG|INFO|WARNING|ERROR)",
+    "connection_mode": "list(auto|gpio|usb)",
+    "serial_port": "str"
+  },
+  "privileged": ["SYS_ADMIN"],
+  "devices": [],
+  "hassio_api": true,
+  "homeassistant": "2023.12.0"
+}
