@@ -2,7 +2,7 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.19
 FROM ${BUILD_FROM}
 
-# Install requirements
+# Install requirements and clean up in one layer to reduce image size
 RUN apk add --no-cache \
     python3 \
     py3-pip \
@@ -14,14 +14,15 @@ RUN apk add --no-cache \
     py3-aiofiles \
     py3-cryptography \
     py3-pyserial \
-    py3-numpy \
     py3-yaml \
     curl \
-    ca-certificates
+    ca-certificates && \
+    rm -rf /var/cache/apk/*
 
-# Copy requirements
+# Copy requirements and install Python dependencies in one layer
 COPY rootfs/requirements.txt /tmp/
-RUN pip3 install --no-cache-dir --break-system-packages -r /tmp/requirements.txt
+RUN pip3 install --no-cache-dir --break-system-packages -r /tmp/requirements.txt && \
+    rm /tmp/requirements.txt
 
 # Copy root filesystem
 COPY rootfs /
@@ -30,7 +31,6 @@ COPY rootfs /
 RUN addgroup -g 1000 addon && \
     adduser -D -u 1000 -G addon addon && \
     addgroup addon dialout && \
-    addgroup addon gpio && \
     mkdir -p /app /data && \
     chown -R addon:addon /app /data
 
