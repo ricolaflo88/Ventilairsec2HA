@@ -1,10 +1,11 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
 name: Ventilairsec2HA Repository
 url: "https://github.com/ricolaflo88/Ventilairsec2HA"
-maintainer: ricolaflo88 <ricolaflo88@users.noreply.github.com>
+maintainer: ricolaflo88
+documentation: "https://github.com/ricolaflo88/Ventilairsec2HA"
+issue_tracker: "https://github.com/ricolaflo88/Ventilairsec2HA/issues"
 addons:
   ventilairsec2ha:
-    url: https://github.com/ricolaflo88/Ventilairsec2HA/tree/main/ventilairsec2ha
-    target: ventilairsec2ha
-    title: Ventilairsec2HA
+    name: Ventilairsec2HA
     description: Contrôle de VMI Purevent Ventilairsec via EnOcean
+    slug: ventilairsec2ha
