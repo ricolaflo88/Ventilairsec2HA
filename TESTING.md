@@ -22,7 +22,19 @@ pip install -r ventilairsec2ha/rootfs/requirements.txt
 pip install pytest pytest-cov pytest-asyncio
 ```
 
-### Lancer les Tests
+### Lancer les Tests - Nouvelle Suite (Recommandé)
+
+```bash
+# Avec le script bash
+bash run_tests.sh
+
+# Ou directement avec Python3
+python3 ventilairsec2ha/rootfs/app/test_ha_integration.py
+```
+
+**Nouvelle suite:** 40+ tests couvrant MQTT Discovery, entités HA, retry logic
+
+### Tests Existants (pytest)
 
 ```bash
 # Tous les tests

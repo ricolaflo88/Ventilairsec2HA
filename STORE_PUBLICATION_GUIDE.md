@@ -157,8 +157,9 @@ ls -la ventilairsec2ha/Dockerfile
 ls -la ventilairsec2ha/README.md
 ls -la ventilairsec2ha/MQTT_TOPICS.md
 
-# 5. Lancer les tests
-python ventilairsec2ha/rootfs/app/test_ha_integration.py
+# 5. Lancer les tests (dans le container Docker du addon)
+# Les tests s'exécutent dans l'environnement de l'addon
+# Pour tester localement: python3 ventilairsec2ha/rootfs/app/test_ha_integration.py
 
 # 6. Vérifier le README pour les badges
 cat ventilairsec2ha/README.md | head -20
