@@ -30,46 +30,46 @@ Guide pour naviguer dans la documentation complète de Ventilairsec2HA.
 
 ### Installation & Configuration
 
-| Document | Purpose | Audience |
-|----------|---------|----------|
-| [INSTALL.md](ventilairsec2ha/INSTALL.md) | Guide d'installation | Utilisateurs |
-| [HOME_ASSISTANT_INTEGRATION.md](ventilairsec2ha/HOME_ASSISTANT_INTEGRATION.md) | Intégration HA | Utilisateurs |
-| [GPIO_USB_GUIDE.md](ventilairsec2ha/GPIO_USB_GUIDE.md) | Configuration matériel | Développeurs |
-| [SUPPORTED_DEVICES.md](ventilairsec2ha/SUPPORTED_DEVICES.md) | Appareils supportés | Tous |
+| Document                                                                       | Purpose                | Audience     |
+| ------------------------------------------------------------------------------ | ---------------------- | ------------ |
+| [INSTALL.md](ventilairsec2ha/INSTALL.md)                                       | Guide d'installation   | Utilisateurs |
+| [HOME_ASSISTANT_INTEGRATION.md](ventilairsec2ha/HOME_ASSISTANT_INTEGRATION.md) | Intégration HA         | Utilisateurs |
+| [GPIO_USB_GUIDE.md](ventilairsec2ha/GPIO_USB_GUIDE.md)                         | Configuration matériel | Développeurs |
+| [SUPPORTED_DEVICES.md](ventilairsec2ha/SUPPORTED_DEVICES.md)                   | Appareils supportés    | Tous         |
 
 ### Technique & API
 
-| Document | Purpose | Audience |
-|----------|---------|----------|
-| [DOCS.md](ventilairsec2ha/DOCS.md) | Documentation technique | Développeurs |
+| Document                                         | Purpose                    | Audience             |
+| ------------------------------------------------ | -------------------------- | -------------------- |
+| [DOCS.md](ventilairsec2ha/DOCS.md)               | Documentation technique    | Développeurs         |
 | [MQTT_TOPICS.md](ventilairsec2ha/MQTT_TOPICS.md) | Structure MQTT & Discovery | Développeurs/Avancés |
-| [AUTOMATIONS.md](ventilairsec2ha/AUTOMATIONS.md) | Exemples d'automations | Utilisateurs avancés |
+| [AUTOMATIONS.md](ventilairsec2ha/AUTOMATIONS.md) | Exemples d'automations     | Utilisateurs avancés |
 
 ### Tests & Qualité
 
-| Document | Purpose | Audience |
-|----------|---------|----------|
-| [TESTING.md](TESTING.md) | Guide des tests | Développeurs |
+| Document                                                                    | Purpose               | Audience     |
+| --------------------------------------------------------------------------- | --------------------- | ------------ |
+| [TESTING.md](TESTING.md)                                                    | Guide des tests       | Développeurs |
 | [test_ha_integration.py](ventilairsec2ha/rootfs/app/test_ha_integration.py) | Tests unitaires (40+) | Développeurs |
-| [run_tests.sh](run_tests.sh) | Script de test | Tous |
+| [run_tests.sh](run_tests.sh)                                                | Script de test        | Tous         |
 
 ### Publication & Release
 
-| Document | Purpose | Audience |
-|----------|---------|----------|
-| [QUICK_START_PUBLICATION.md](QUICK_START_PUBLICATION.md) | Guide rapide publication | Mainteneurs |
-| [STORE_PUBLICATION_GUIDE.md](STORE_PUBLICATION_GUIDE.md) | Guide complet store HA | Mainteneurs |
-| [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) | Notes de version | Tous |
-| [FINAL_SUMMARY.md](FINAL_SUMMARY.md) | Résumé complet v1.0.0 | Tous |
-| [CHANGES_DETAILED.md](CHANGES_DETAILED.md) | Liste détaillée modifications | Développeurs |
+| Document                                                 | Purpose                       | Audience     |
+| -------------------------------------------------------- | ----------------------------- | ------------ |
+| [QUICK_START_PUBLICATION.md](QUICK_START_PUBLICATION.md) | Guide rapide publication      | Mainteneurs  |
+| [STORE_PUBLICATION_GUIDE.md](STORE_PUBLICATION_GUIDE.md) | Guide complet store HA        | Mainteneurs  |
+| [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md)       | Notes de version              | Tous         |
+| [FINAL_SUMMARY.md](FINAL_SUMMARY.md)                     | Résumé complet v1.0.0         | Tous         |
+| [CHANGES_DETAILED.md](CHANGES_DETAILED.md)               | Liste détaillée modifications | Développeurs |
 
 ### Historique & Contribution
 
-| Document | Purpose | Audience |
-|----------|---------|----------|
-| [CHANGELOG.md](ventilairsec2ha/CHANGELOG.md) | Historique versions | Tous |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Guide contribution | Contributeurs |
-| [LICENSE](LICENSE) | MIT License | Tous |
+| Document                                     | Purpose             | Audience      |
+| -------------------------------------------- | ------------------- | ------------- |
+| [CHANGELOG.md](ventilairsec2ha/CHANGELOG.md) | Historique versions | Tous          |
+| [CONTRIBUTING.md](CONTRIBUTING.md)           | Guide contribution  | Contributeurs |
+| [LICENSE](LICENSE)                           | MIT License         | Tous          |
 
 ---
 
@@ -171,16 +171,19 @@ Pour comprendre complètement le projet:
 ## 🔗 Raccourcis Utiles
 
 ### Documentation Officielle
+
 - [Home Assistant Docs](https://www.home-assistant.io/docs/)
 - [EnOcean Official](https://www.enocean.com/)
 - [MQTT Spec](https://mqtt.org/)
 
 ### Code Source
+
 - [GitHub Repo](https://github.com/ricolaflo88/Ventilairsec2HA)
 - [Code Source Addon](ventilairsec2ha/rootfs/app/)
 - [Tests Unitaires](ventilairsec2ha/rootfs/app/test_ha_integration.py)
 
 ### Support
+
 - [GitHub Issues](https://github.com/ricolaflo88/Ventilairsec2HA/issues)
 - [GitHub Discussions](https://github.com/ricolaflo88/Ventilairsec2HA/discussions)
 

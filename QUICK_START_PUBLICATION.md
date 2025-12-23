@@ -13,6 +13,7 @@ bash verify_release.sh
 ```
 
 Doit afficher:
+
 ```
 ✅ Tous les fichiers sont présents!
 🎉 Plugin prêt pour la publication!
@@ -57,19 +58,23 @@ git push origin v1.0.0
 3. Créer une PR
 
 **Template PR:**
+
 ```markdown
 ## Nouveau Addon: Ventilairsec2HA
 
 ### Description
+
 Intégration complète pour VMI Purevent Ventilairsec avec MQTT Discovery.
 
 ### Features
+
 - ✅ MQTT Discovery
 - ✅ Entités HA natives
 - ✅ Retry automatique
 - ✅ 40+ tests
 
 ### Repository
+
 https://github.com/ricolaflo88/Ventilairsec2HA
 ```
 
@@ -80,6 +85,7 @@ https://github.com/ricolaflo88/Ventilairsec2HA
 3. Créer une PR avec description détaillée
 
 **Critères:**
+
 - [x] Version 1.0.0+
 - [x] Tests complets
 - [x] Documentation
@@ -135,11 +141,13 @@ git clone https://github.com/ricolaflo88/Ventilairsec2HA.git
 ## 🎯 Après Publication
 
 1. **Communiquer**
+
    - Post sur forum HA
    - Tweet/Social media
    - GitHub Discussions
 
 2. **Support**
+
    - Répondre aux issues
    - Fixer les bugs rapidement
    - Maintenir la documentation

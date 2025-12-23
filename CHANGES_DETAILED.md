@@ -90,13 +90,13 @@
 1. ventilairsec2ha/manifest.json
    CHANGEMENTS:
    - "version": "0.1.0" → "1.0.0"
-   - "description": "..." → "Intégration complète pour VMI Purevent Ventilairsec 
+   - "description": "..." → "Intégration complète pour VMI Purevent Ventilairsec
                                avec EnOcean et MQTT Discovery"
 
 2. ventilairsec2ha/config.yaml
    CHANGEMENTS:
    - version: "0.1.0" → "1.0.0"
-   - description: "..." → "Intégration complète pour VMI Purevent Ventilairsec 
+   - description: "..." → "Intégration complète pour VMI Purevent Ventilairsec
                             avec EnOcean et MQTT Discovery"
 
 3. ventilairsec2ha/rootfs/app/home_assistant_integration.py
@@ -142,6 +142,7 @@
 ### 🔄 Modifications Détaillées par Fichier
 
 #### home_assistant_integration.py
+
 ```python
 # AVANT: Juste MQTT basique
 # APRÈS: MQTT Discovery + Entités natives
@@ -179,6 +180,7 @@ if self.entity_manager:
 ```
 
 #### enocean_communicator.py
+
 ```python
 # AVANT: Pas de retry
 # APRÈS: Retry avec exponential backoff
