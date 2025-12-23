@@ -9,6 +9,7 @@ Cette liste vérifie que le plugin respecte tous les critères du store officiel
 ## 1️⃣ Configuration et Structure
 
 - [x] **manifest.json** valide
+
   - ✅ `version`: "1.0.0" (sémantique)
   - ✅ `slug`: "ventilairsec2ha" (unique, lowercase)
   - ✅ `name`: Descriptif
@@ -19,11 +20,13 @@ Cette liste vérifie que le plugin respecte tous les critères du store officiel
   - ✅ `homeassistant`: Version minimale "2023.12.0"
 
 - [x] **config.yaml** cohérent avec manifest.json
+
   - ✅ Version synchronisée
   - ✅ Options valides
   - ✅ Schema complet
 
 - [x] **build.yaml** pour multi-architecture
+
   - ✅ Base images officielles HA
   - ✅ TEMPIO version spécifiée
 
@@ -48,7 +51,7 @@ Cette liste vérifie que le plugin respecte tous les critères du store officiel
 ### Entités Home Assistant ✅
 
 - [x] **Climate Entity**: Contrôle VMI (modes: off, low, medium, high, auto)
-- [x] **Sensor Entities**: 
+- [x] **Sensor Entities**:
   - VMI Temperature
   - VMI Status
   - VMI Error Code
@@ -85,6 +88,7 @@ Cette liste vérifie que le plugin respecte tous les critères du store officiel
 ## 4️⃣ Tests et Qualité
 
 - [x] Tests unitaires ([test_ha_integration.py](rootfs/app/test_ha_integration.py))
+
   - Tests parsing EnOcean
   - Tests MQTT Discovery
   - Tests state management
@@ -92,6 +96,7 @@ Cette liste vérifie que le plugin respecte tous les critères du store officiel
   - Tests configuration
 
 - [x] GitHub Actions CI/CD
+
   - Build multi-architecture
   - Tests on push
 
@@ -200,16 +205,16 @@ Sur GitHub, créer un nouveau repository:
 
 ## 📊 Métriques de Qualité
 
-| Métrique | Valeur | Status |
-|----------|--------|--------|
-| **Version** | 1.0.0 | ✅ |
-| **Tests** | 40+ cas | ✅ |
-| **Coverage** | ~80% | ✅ |
-| **Architectures** | 3 (amd64, aarch64, armv7) | ✅ |
-| **MQTT Discovery** | Complète | ✅ |
-| **Documentation** | 9 fichiers | ✅ |
-| **GitHub Actions** | Actif | ✅ |
-| **License** | MIT | ✅ |
+| Métrique           | Valeur                    | Status |
+| ------------------ | ------------------------- | ------ |
+| **Version**        | 1.0.0                     | ✅     |
+| **Tests**          | 40+ cas                   | ✅     |
+| **Coverage**       | ~80%                      | ✅     |
+| **Architectures**  | 3 (amd64, aarch64, armv7) | ✅     |
+| **MQTT Discovery** | Complète                  | ✅     |
+| **Documentation**  | 9 fichiers                | ✅     |
+| **GitHub Actions** | Actif                     | ✅     |
+| **License**        | MIT                       | ✅     |
 
 ---
 
@@ -219,10 +224,12 @@ Sur GitHub, créer un nouveau repository:
 # Nouveau Addon: Ventilairsec2HA
 
 ## Description
-Intégration complète pour contrôler une VMI Purevent Ventilairsec via EnOcean, 
+
+Intégration complète pour contrôler une VMI Purevent Ventilairsec via EnOcean,
 avec MQTT Discovery et entités Home Assistant natives.
 
 ## Fonctionnalités
+
 - ✅ Contrôle VMI Purevent Ventilairsec (D1-07-9F)
 - ✅ Support capteurs CO₂ et température/humidité
 - ✅ MQTT Discovery pour auto-intégration HA
@@ -231,23 +238,27 @@ avec MQTT Discovery et entités Home Assistant natives.
 - ✅ Retry automatique et error handling
 
 ## Prérequis
+
 - Home Assistant 2023.12.0+
 - Mosquitto addon ou MQTT externe
 - EnOcean USB stick ou GPIO UART
 
 ## Tests
+
 - ✅ 40+ unit tests
 - ✅ MQTT Discovery validated
 - ✅ Multi-architecture builds
 - ✅ GPIO/USB connection detection
 
 ## Documentation
+
 - README avec quick start
 - Guide installation détaillé
 - Documentation MQTT Topics
 - Exemples d'automatisations
 
 ## Links
+
 - Repository: https://github.com/ricolaflo88/Ventilairsec2HA
 - Issues: [link to issues]
 ```
@@ -271,4 +282,3 @@ avec MQTT Discovery et entités Home Assistant natives.
 - **Issues**: GitHub Issues
 - **Discussions**: GitHub Discussions
 - **Contributing**: Voir CONTRIBUTING.md
-

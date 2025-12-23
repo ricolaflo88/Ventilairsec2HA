@@ -13,21 +13,25 @@ Ventilairsec2HA utilise **MQTT Discovery** pour créer automatiquement les entit
 #### Climate Entity - Contrôle Ventilation
 
 **Discovery Topic:**
+
 ```
 homeassistant/climate/0421574F/vmi_climate/config
 ```
 
 **State Topic (RO):**
+
 ```
 ventilairsec2ha/0421574F/vmi_climate/state
 ```
 
 **Command Topic (RW):**
+
 ```
 ventilairsec2ha/0421574F/vmi_climate/set
 ```
 
 **Modes Disponibles:**
+
 - `off` (0) - Ventilateur arrêté
 - `low` (1) - Basse vitesse (~40%)
 - `medium` (2) - Vitesse moyenne (~60%)
@@ -35,11 +39,13 @@ ventilairsec2ha/0421574F/vmi_climate/set
 - `auto` (4) - Turbo/Boost (100%)
 
 **Exemple de Commande:**
+
 ```bash
 mosquitto_pub -h localhost -t "ventilairsec2ha/0421574F/vmi_climate/set" -m "high"
 ```
 
 **State Payload:**
+
 ```json
 {
   "state": 2,
@@ -52,11 +58,13 @@ mosquitto_pub -h localhost -t "ventilairsec2ha/0421574F/vmi_climate/set" -m "hig
 #### Sensor: VMI Temperature
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/0421574F/vmi_temperature/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/0421574F/vmi_temperature/state
 ```
@@ -65,6 +73,7 @@ ventilairsec2ha/0421574F/vmi_temperature/state
 **Device Class:** temperature
 
 **State Example:**
+
 ```json
 {
   "state": 22.5
@@ -76,16 +85,19 @@ ventilairsec2ha/0421574F/vmi_temperature/state
 #### Sensor: VMI Status
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/0421574F/vmi_status/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/0421574F/vmi_status/state
 ```
 
 **Possible Values:**
+
 - `normal` - Fonctionnement normal
 - `maintenance` - Mode maintenance
 - `fault` - Erreur détectée
@@ -95,16 +107,19 @@ ventilairsec2ha/0421574F/vmi_status/state
 #### Sensor: VMI Error Code
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/0421574F/vmi_error/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/0421574F/vmi_error/state
 ```
 
 **State Example:**
+
 ```json
 {
   "state": 0
@@ -118,11 +133,13 @@ ventilairsec2ha/0421574F/vmi_error/state
 #### Sensor: CO2 Level
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/81003227/co2_level/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/81003227/co2_level/state
 ```
@@ -132,6 +149,7 @@ ventilairsec2ha/81003227/co2_level/state
 **Range:** 0-2500 ppm
 
 **State Example:**
+
 ```json
 {
   "state": 450
@@ -139,6 +157,7 @@ ventilairsec2ha/81003227/co2_level/state
 ```
 
 **Niveaux Recommandés:**
+
 - < 400 ppm : Excellent
 - 400-800 ppm : Bon
 - 800-1200 ppm : Acceptable
@@ -151,11 +170,13 @@ ventilairsec2ha/81003227/co2_level/state
 #### Sensor: Temperature
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/810054F5/temperature/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/810054F5/temperature/state
 ```
@@ -165,6 +186,7 @@ ventilairsec2ha/810054F5/temperature/state
 **Range:** -20 à +60°C
 
 **State Example:**
+
 ```json
 {
   "state": 21.2
@@ -176,11 +198,13 @@ ventilairsec2ha/810054F5/temperature/state
 #### Sensor: Humidity
 
 **Discovery Topic:**
+
 ```
 homeassistant/sensor/810054F5/humidity/config
 ```
 
 **State Topic:**
+
 ```
 ventilairsec2ha/810054F5/humidity/state
 ```
@@ -190,6 +214,7 @@ ventilairsec2ha/810054F5/humidity/state
 **Range:** 0-100%
 
 **State Example:**
+
 ```json
 {
   "state": 55
@@ -266,12 +291,12 @@ cards:
   - type: climate
     entity: climate.vmi_ventilation_control
     name: "Ventilation"
-  
+
   - type: gauge
     entity: sensor.co2_level
     min: 400
     max: 2500
-    
+
   - type: entities
     entities:
       - entity: sensor.temperature

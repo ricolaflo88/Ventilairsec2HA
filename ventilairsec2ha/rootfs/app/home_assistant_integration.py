@@ -74,16 +74,16 @@ class HomeAssistantIntegration:
                     for _ in range(30):
                         if self.connected:
                             logger.info("✅ Connected to MQTT broker")
-                            
+
                             # Create HA entities with MQTT Discovery
                             await self._setup_ha_entities()
-                            
+
                             return True
                         await asyncio.sleep(0.1)
 
                     # Connection timeout, try again
                     self.client.loop_stop()
-                    
+
                 except Exception as e:
                     logger.warning(f"⚠️  Connection attempt {attempt + 1}/{max_retries} failed: {e}")
                     await asyncio.sleep(2 ** attempt)  # Exponential backoff

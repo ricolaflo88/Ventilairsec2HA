@@ -76,7 +76,7 @@ class EnOceanCommunicator:
                         logger.info("ℹ️  Available options:")
                         logger.info("   USB: /dev/ttyUSB*")
                         logger.info("   GPIO UART: /dev/ttyAMA0, /dev/serial0")
-                        
+
                         if attempt < self.max_retries - 1:
                             logger.info(f"⏳ Retrying in {self.retry_delay}s...")
                             await asyncio.sleep(self.retry_delay)
@@ -97,15 +97,15 @@ class EnOceanCommunicator:
                     # Get base ID and other controller info
                     if not await self.get_base_id():
                         logger.warning(f"⚠️  Failed to get base ID (attempt {attempt + 1}/{self.max_retries})")
-                        
+
                         if self.serial:
                             self.serial.close()
                             self.serial = None
-                        
+
                         if attempt < self.max_retries - 1:
                             await asyncio.sleep(self.retry_delay)
                             continue
-                        
+
                         logger.error("❌ Failed to get base ID after retries")
                         return False
 
@@ -116,18 +116,18 @@ class EnOceanCommunicator:
 
                 except serial.SerialException as e:
                     logger.warning(f"⚠️  Serial error (attempt {attempt + 1}/{self.max_retries}): {e}")
-                    
+
                     if self.serial:
                         try:
                             self.serial.close()
                         except:
                             pass
                         self.serial = None
-                    
+
                     if attempt < self.max_retries - 1:
                         await asyncio.sleep(self.retry_delay)
                         continue
-                    
+
                     logger.error("❌ Serial connection failed after retries")
                     return False
 
