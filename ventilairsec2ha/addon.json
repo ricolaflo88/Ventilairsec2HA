@@ -2,17 +2,24 @@
   "name": "Ventilairsec2HA",
   "version": "0.1.0",
   "slug": "ventilairsec2ha",
-  "description": "Intégration EnOcean pour VMI (Ventilation Mécanique Contrôlée) via MQTT dans Home Assistant",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "description": "Intégration EnOcean pour VMI via MQTT dans Home Assistant",
   "url": "https://github.com/ricolaflo88/Ventilairsec2HA",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
+  "homeassistant_api": true,
+  "homeassistant": {
+    "api": true
+  },
   "ports": {
     "8080/tcp": "Interface Web"
   },
   "ports_description": {
     "8080/tcp": "Port pour l'interface web du dashboard"
   },
+  "privileged": ["SYS_ADMIN"],
+  "devices": ["/dev/ttyUSB0:/dev/ttyUSB0", "/dev/ttyAMA0:/dev/ttyAMA0"],
+  "map": ["config"],
   "options": {
     "mqtt_host": "localhost",
     "mqtt_port": 1883,
@@ -32,15 +39,5 @@
     "connection_mode": "list(auto|gpio|usb)",
     "serial_port": "str",
     "log_level": "list(DEBUG|INFO|WARNING|ERROR)"
-  },
-  "environment": {
-    "LOG_LEVEL": "INFO"
-  },
-  "privileged": ["SYS_ADMIN"],
-  "devices": ["/dev/ttyUSB0:/dev/ttyUSB0", "/dev/ttyAMA0:/dev/ttyAMA0"],
-  "map": ["config"],
-  "homeassistant_api": true,
-  "homeassistant": {
-    "api": true
   }
 }
