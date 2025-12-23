@@ -46,9 +46,12 @@ class EnOceanCommunicator:
         self.running = False
         self.packet_callbacks: List[Callable] = []
         self.connection_type = None  # Will be set during init
+        self.retry_count = 0
+        self.max_retries = 5
+        self.retry_delay = 2  # seconds
 
     async def initialize(self) -> bool:
-        """Initialize serial connection"""
+        """Initialize serial connection with retry logic"""
         try:
             logger.info(f"🔌 Initializing EnOcean communicator (mode: {self.mode})")
 
@@ -64,38 +67,72 @@ class EnOceanCommunicator:
             if self.port == 'auto':
                 self.port = self._detect_port()
 
-            # Check if port exists
-            if not Path(self.port).exists():
-                logger.error(f"❌ Serial port {self.port} not found")
-                logger.info("ℹ️  Available options:")
-                logger.info("   USB: /dev/ttyUSB*")
-                logger.info("   GPIO UART: /dev/ttyAMA0, /dev/serial0")
-                return False
+            # Try to connect with retry logic
+            for attempt in range(self.max_retries):
+                try:
+                    # Check if port exists
+                    if not Path(self.port).exists():
+                        logger.error(f"❌ Serial port {self.port} not found")
+                        logger.info("ℹ️  Available options:")
+                        logger.info("   USB: /dev/ttyUSB*")
+                        logger.info("   GPIO UART: /dev/ttyAMA0, /dev/serial0")
+                        
+                        if attempt < self.max_retries - 1:
+                            logger.info(f"⏳ Retrying in {self.retry_delay}s...")
+                            await asyncio.sleep(self.retry_delay)
+                            continue
+                        return False
 
-            # Open serial port
-            self.serial = serial.Serial(
-                port=self.port,
-                baudrate=self.BAUDRATE,
-                timeout=self.TIMEOUT,
-                write_timeout=self.TIMEOUT
-            )
+                    # Open serial port
+                    self.serial = serial.Serial(
+                        port=self.port,
+                        baudrate=self.BAUDRATE,
+                        timeout=self.TIMEOUT,
+                        write_timeout=self.TIMEOUT
+                    )
 
-            conn_desc = f"GPIO UART" if self.connection_type == self.MODE_GPIO_UART else "USB"
-            logger.info(f"✅ Serial port opened: {self.port} ({conn_desc}) @ {self.BAUDRATE} baud")
+                    conn_desc = f"GPIO UART" if self.connection_type == self.MODE_GPIO_UART else "USB"
+                    logger.info(f"✅ Serial port opened: {self.port} ({conn_desc}) @ {self.BAUDRATE} baud")
 
-            # Get base ID and other controller info
-            if not await self.get_base_id():
-                logger.error("❌ Failed to get base ID from controller")
-                return False
+                    # Get base ID and other controller info
+                    if not await self.get_base_id():
+                        logger.warning(f"⚠️  Failed to get base ID (attempt {attempt + 1}/{self.max_retries})")
+                        
+                        if self.serial:
+                            self.serial.close()
+                            self.serial = None
+                        
+                        if attempt < self.max_retries - 1:
+                            await asyncio.sleep(self.retry_delay)
+                            continue
+                        
+                        logger.error("❌ Failed to get base ID after retries")
+                        return False
 
-            logger.info(f"✅ Controller Base ID: {self.base_id.hex().upper()}")
+                    logger.info(f"✅ Controller Base ID: {self.base_id.hex().upper()}")
+                    self.running = True
+                    self.retry_count = 0
+                    return True
 
-            self.running = True
-            return True
+                except serial.SerialException as e:
+                    logger.warning(f"⚠️  Serial error (attempt {attempt + 1}/{self.max_retries}): {e}")
+                    
+                    if self.serial:
+                        try:
+                            self.serial.close()
+                        except:
+                            pass
+                        self.serial = None
+                    
+                    if attempt < self.max_retries - 1:
+                        await asyncio.sleep(self.retry_delay)
+                        continue
+                    
+                    logger.error("❌ Serial connection failed after retries")
+                    return False
 
-        except serial.SerialException as e:
-            logger.error(f"❌ Serial port error: {e}")
             return False
+
         except Exception as e:
             logger.error(f"❌ Initialization error: {e}")
             return False

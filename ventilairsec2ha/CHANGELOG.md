@@ -1,5 +1,49 @@
 # 📝 Changelog - Ventilairsec2HA
 
+## [1.0.0] - 2024-01-23 - Store Ready Release
+
+### 🎉 Release Production Officielle pour Home Assistant Store
+
+#### ✨ Nouvelles Fonctionnalités - Intégration Profonde HA
+
+- **MQTT Discovery** ⭐ : Auto-création des entités HA sans configuration manuelle
+- **Entités Native HA** ⭐ : Climate entity pour contrôle VMI + sensors pour tous les appareils
+- **Climate Control** : Mode VMI avec options (off, low, medium, high, auto)
+- **Home Assistant Integration** : Intégration complète avec auto-découverte
+- **Sensor Entities** : Température, humidité, CO₂, status VMI, codes erreur
+
+#### 🔧 Améliorations - Fiabilité et Robustesse
+
+- **Retry Logic** : Connexion automatique avec backoff exponentiel (5 tentatives)
+- **Better Error Handling** : Meilleure gestion des déconnexions et timeouts
+- **MQTT Protocol** : Support MQTTv311 pour meilleure compatibilité
+- **Persistent Topics** : Tous les messages retained pour persistance
+
+#### 📚 Documentation Améliorée
+
+- ✅ MQTT_TOPICS.md : Référence complète structure MQTT Discovery
+- ✅ STORE_PUBLICATION_GUIDE.md : Guide publication Store HA
+- ✅ Badges version 1.0.0 dans README
+- ✅ Exemples d'utilisation des entités natives
+
+#### 🧪 Tests - Couverture Complète
+
+- ✅ 40+ unit tests (vs 20+ avant)
+- ✅ Tests MQTT Discovery
+- ✅ Tests state management
+- ✅ Tests retry logic
+- ✅ Tests configuration
+
+#### 🏪 Store Officiel
+
+- ✅ Conforme aux critères Home Assistant
+- ✅ Multi-architecture testé
+- ✅ Sécurité renforcée
+- ✅ Documentation complète
+- ✅ CI/CD GitHub Actions
+
+---
+
 ## [0.1.0] - 2024-01-15 - Production Ready
 
 ### 🎉 Première Release Complète

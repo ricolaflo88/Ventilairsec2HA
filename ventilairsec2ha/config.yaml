@@ -1,8 +1,8 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Ventilairsec2HA
-version: "0.1.0"
+version: "1.0.0"
 slug: ventilairsec2ha
-description: Contrôle de VMI Purevent Ventilairsec via EnOcean et MQTT
+description: Intégration complète pour VMI Purevent Ventilairsec avec EnOcean et MQTT Discovery
 url: https://github.com/ricolaflo88/Ventilairsec2HA
 codeowners:
   - "@ricolaflo88"

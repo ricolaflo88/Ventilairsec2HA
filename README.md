@@ -1,9 +1,10 @@
 # 🌬️ Ventilairsec2HA - Addon Home Assistant OS
 
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-0.1.0-blue)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
 ![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.12+-blue)
+![MQTT Discovery](https://img.shields.io/badge/MQTT%20Discovery-Enabled-brightgreen)
 
 Addon Home Assistant OS pour contrôler une **VMI Purevent Ventilairsec** via le protocole **EnOcean**.
 
@@ -115,22 +116,34 @@ Fournir une **intégration complète et autonome** permettant à Home Assistant 
 
 ## ✨ Fonctionnalités
 
-### ✅ Implémentation Actuelle
+### ✅ Version 1.0.0 - Production Ready
 
 - [x] Pile EnOcean complète (réception/parsing/envoi)
 - [x] Décodage des trames D1-07-9F (VMI Purevent)
-- [x] Support des capteurs 4BS (A5-04-xx)
-- [x] Gestion MQTT pour Home Assistant
+- [x] Support des capteurs 4BS (A5-04-xx, A5-09-04)
+- [x] **MQTT Discovery pour auto-intégration HA** ⭐
+- [x] **Entités Home Assistant natives** (climate, sensors) ⭐
+- [x] Gestion MQTT avec retry et error handling
 - [x] API REST avec WebUI
-- [x] Configuration flexible
-- [x] Logging avancé
+- [x] Configuration flexible (GPIO/USB auto-détection)
+- [x] Logging avancé (DEBUG, INFO, WARNING, ERROR)
+- [x] Tests complets (40+ cas)
+- [x] GitHub Actions CI/CD
 
-### 📋 En Développement
+### 🎯 MQTT Discovery (Automatique)
 
-- [ ] Entités Home Assistant natives
-- [ ] Dashboard Lovelace préconfiguré
-- [ ] Tests complets hardware
-- [ ] Appairage semi-auto des nouveaux appareils
+Les entités suivantes sont **créées automatiquement** :
+
+- 🌡️ **Climate**: Contrôle VMI (modes: off, low, medium, high, auto)
+- 🌡️ **Sensors**:
+  - VMI Temperature
+  - VMI Status
+  - VMI Error Code
+  - CO₂ Level (ppm)
+  - Room Temperature
+  - Room Humidity
+
+**Voir [MQTT_TOPICS.md](ventilairsec2ha/MQTT_TOPICS.md) pour la structure complète**
 
 ---
 
