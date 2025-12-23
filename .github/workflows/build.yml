@@ -71,16 +71,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate add-on manifest
+      - name: Validate add-on configuration
         run: |
-          python3 -m json.tool ventilairsec2ha/manifest.json > /dev/null && echo "✅ manifest.json is valid"
+          python3 -m json.tool ventilairsec2ha/addon.json > /dev/null && echo "✅ addon.json is valid"
 
       - name: Validate add-on structure
         run: |
           test -f ventilairsec2ha/config.yaml && echo "✅ config.yaml exists"
           test -f ventilairsec2ha/build.yaml && echo "✅ build.yaml exists"
           test -f ventilairsec2ha/Dockerfile && echo "✅ Dockerfile exists"
-          test -f ventilairsec2ha/manifest.json && echo "✅ manifest.json exists"
+          test -f ventilairsec2ha/addon.json && echo "✅ addon.json exists"
           test -f ventilairsec2ha/README.md && echo "✅ README.md exists"
 
   test:
