@@ -1,6 +1,7 @@
 # 📦 Guide d'Installation - Ventilairsec2HA
 
 ## Problème Initial
+
 ```
 zsh: command not found: pip
 ```
@@ -10,23 +11,27 @@ zsh: command not found: pip
 ### 1️⃣ Installer les dépendances système
 
 **Option A: Avec apt (Debian/Ubuntu)**
+
 ```bash
 sudo apt-get update
 sudo apt-get install -y python3 python3-pip python3-venv python3-dev
 ```
 
 **Option B: Avec le script fourni**
+
 ```bash
 bash install-dependencies.sh
 ```
 
 ### 2️⃣ Vérifier l'installation
+
 ```bash
 python3 --version  # Devrait afficher Python 3.x
 pip3 --version     # Devrait afficher pip version
 ```
 
 ### 3️⃣ Créer un alias pip (optionnel mais recommandé)
+
 ```bash
 # Pour zsh
 echo "alias pip=pip3" >> ~/.zshrc
@@ -42,6 +47,7 @@ source ~/.bashrc
 ## Installation Complète du Projet
 
 ### Option 1: Script automatisé (Recommandé)
+
 ```bash
 # Tout en un
 bash setup.sh
@@ -73,6 +79,7 @@ pip install -r requirements-dev.txt
 ```
 
 ### Option 3: Avec Makefile
+
 ```bash
 # Installer dépendances système
 make install
@@ -92,6 +99,7 @@ make test
 ## Vérifications Après Installation
 
 ### Vérifier pip
+
 ```bash
 pip --version
 pip3 --version
@@ -100,11 +108,13 @@ which pip3
 ```
 
 ### Vérifier les dépendances installées
+
 ```bash
 pip list | grep -E "pytest|homeassistant|enocean"
 ```
 
 ### Vérifier les imports Python
+
 ```bash
 python3 -c "import pytest; print('✅ pytest OK')"
 python3 -c "import homeassistant; print('✅ homeassistant OK')"
@@ -116,9 +126,11 @@ python3 -c "import enocean; print('✅ enocean OK')"
 ## Dépannage
 
 ### Erreur: "command not found: pip"
+
 **Cause**: pip3 n'est pas dans le PATH
 
 **Solutions**:
+
 ```bash
 # Option 1: Utiliser pip3 à la place
 pip3 install -r requirements-dev.txt
@@ -132,27 +144,33 @@ export PATH="$PATH:$(python3 -m site --user-base)/bin"
 ```
 
 ### Erreur: "command not found: python3"
+
 **Cause**: Python3 n'est pas installé
 
 **Solution**:
+
 ```bash
 sudo apt-get update
 sudo apt-get install -y python3 python3-pip
 ```
 
 ### Erreur: Permission denied
+
 **Cause**: Droits d'accès insuffisants
 
 **Solution**:
+
 ```bash
 # Ne PAS utiliser sudo pour pip avec venv activé
 pip install -r requirements-dev.txt  # Sans sudo!
 ```
 
 ### Environnement virtuel ne s'active pas
+
 **Cause**: Mauvais shell ou chemin
 
 **Solution**:
+
 ```bash
 # Vérifier le shell
 echo $SHELL
@@ -166,6 +184,7 @@ source /workspaces/Ventilairsec2HA/venv/bin/activate
 ## Structure Finale
 
 Après installation réussie:
+
 ```
 Ventilairsec2HA/
 ├── venv/                    # ← Environnement virtuel
