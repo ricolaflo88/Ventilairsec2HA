@@ -29,6 +29,7 @@ Date:                      23 Décembre 2025
 ### Code Source
 
 **1. ventilairsec2ha/rootfs/app/ha_entities.py**
+
 ```
 Status:      ✅ Créé
 Type:        Python Module
@@ -46,6 +47,7 @@ Dépend de:   paho.mqtt
 ```
 
 **2. ventilairsec2ha/rootfs/app/test_ha_integration.py**
+
 ```
 Status:      ✅ Créé
 Type:        Python Test Module
@@ -65,6 +67,7 @@ Dépend de:   unittest, json
 ### Documentation Utilisateur
 
 **3. ventilairsec2ha/MQTT_TOPICS.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Documentation
@@ -86,6 +89,7 @@ Sections:
 ### Documentation Publication
 
 **4. STORE_PUBLICATION_GUIDE.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Guide
@@ -107,6 +111,7 @@ Sections:
 ```
 
 **5. RELEASE_NOTES_v1.0.0.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Release Notes
@@ -123,6 +128,7 @@ Contient:
 ```
 
 **6. QUICK_START_PUBLICATION.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Guide
@@ -139,6 +145,7 @@ Sections:
 ```
 
 **7. FINAL_SUMMARY.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Summary
@@ -154,6 +161,7 @@ Contient:
 ```
 
 **8. CHANGES_DETAILED.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Documentation
@@ -169,6 +177,7 @@ Sections:
 ```
 
 **9. DOCUMENTATION_INDEX.md**
+
 ```
 Status:      ✅ Créé
 Type:        Markdown Index
@@ -187,6 +196,7 @@ Contient:
 ### Scripts
 
 **10. run_tests.sh**
+
 ```
 Status:      ✅ Créé
 Type:        Bash Script
@@ -201,6 +211,7 @@ Usage:       bash run_tests.sh
 ```
 
 **11. verify_release.sh**
+
 ```
 Status:      ✅ Créé
 Type:        Bash Script
@@ -222,24 +233,26 @@ Usage:       bash verify_release.sh
 ### Configuration Addon
 
 **1. ventilairsec2ha/manifest.json**
+
 ```
 Status:      ✅ Modifié
 Changes:
   - "version": "0.1.0" → "1.0.0"
   - "description": Complété avec "MQTT Discovery"
-  
+
 Before:      73 lignes
 After:       73 lignes
 Diff:        +1 ligne (description)
 ```
 
 **2. ventilairsec2ha/config.yaml**
+
 ```
 Status:      ✅ Modifié
 Changes:
   - version: "0.1.0" → "1.0.0"
   - description: Mise à jour
-  
+
 Before:      62 lignes
 After:       62 lignes
 Diff:        +1 ligne (description)
@@ -248,6 +261,7 @@ Diff:        +1 ligne (description)
 ### Code Source Principal
 
 **3. ventilairsec2ha/rootfs/app/home_assistant_integration.py**
+
 ```
 Status:      ✅ Modifié
 Changes:
@@ -258,13 +272,14 @@ Changes:
   - Amélioration _on_mqtt_connect()
   - Amélioration _on_mqtt_message()
   - Amélioration publish_loop()
-  
+
 Before:      149 lignes
 After:       ~250 lignes
 Diff:        +101 lignes
 ```
 
 **4. ventilairsec2ha/rootfs/app/enocean_communicator.py**
+
 ```
 Status:      ✅ Modifié
 Changes:
@@ -273,7 +288,7 @@ Changes:
   - Exponential backoff (2^attempt)
   - Better error handling
   - MQTTv311 support (avant MQTTv31)
-  
+
 Before:      258 lignes
 After:       ~340 lignes
 Diff:        +82 lignes
@@ -282,6 +297,7 @@ Diff:        +82 lignes
 ### Documentation
 
 **5. README.md**
+
 ```
 Status:      ✅ Modifié
 Changes:
@@ -291,13 +307,14 @@ Changes:
   - Section Features: "✅ Entités HA natives"
   - Nouvelle section: "🎯 MQTT Discovery"
   - Link vers MQTT_TOPICS.md
-  
+
 Before:      ~350 lignes
 After:       ~380 lignes
 Diff:        +30 lignes
 ```
 
 **6. ventilairsec2ha/CHANGELOG.md**
+
 ```
 Status:      ✅ Modifié
 Changes:
@@ -308,7 +325,7 @@ Changes:
   - Tests complets
   - Documentation
   - Maintien v0.1.0 en historique
-  
+
 Before:      ~97 lignes
 After:       ~141 lignes
 Diff:        +44 lignes

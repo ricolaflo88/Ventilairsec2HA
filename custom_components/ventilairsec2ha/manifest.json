@@ -1,0 +1,17 @@
+{
+  "manifest_version": 1,
+  "domain": "ventilairsec2ha",
+  "name": "Ventilairsec2 ENocean VMI",
+  "codeowners": ["@ricolaflo88"],
+  "config_flow": true,
+  "documentation": "https://github.com/ricolaflo88/Ventilairsec2HA",
+  "issue_tracker": "https://github.com/ricolaflo88/Ventilairsec2HA/issues",
+  "requirements": [
+    "enocean>=0.60.0"
+  ],
+  "version": "1.0.0",
+  "homeassistant": "2024.1.0",
+  "iot_class": "local_polling",
+  "loggers": ["ventilairsec2ha"],
+  "integration_type": "device"
+}
