@@ -64,13 +64,17 @@
 ## Commandes de Validation
 
 \`\`\`bash
+
 # Valider la structure
+
 python -m homeassistant -c ./custom_components/ventilairsec2ha --script check_config
 
 # Lancer les tests
+
 pytest tests/
 
 # Vérifier le linting
+
 pylint custom_components/ventilairsec2ha
 flake8 custom_components/ventilairsec2ha
 \`\`\`

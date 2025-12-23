@@ -58,7 +58,7 @@ class VentilairsecConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 await self.hass.async_add_executor_job(
                     self._validate_connection, user_input
                 )
-                
+
                 # Check if already configured
                 await self.async_set_unique_id(
                     user_input[CONF_DEVICE_ADDRESS]
@@ -144,7 +144,7 @@ class VentilairsecConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             port = config[CONF_PORT]
             # Basic port validation
             if not port or (
-                not port.startswith("/dev/") 
+                not port.startswith("/dev/")
                 and not port.startswith("COM")
             ):
                 raise ConnectionError(f"Invalid port: {port}")

@@ -3,15 +3,17 @@
 ## Prérequis pour la Boutique
 
 ### 1. Dépôt GitHub
+
 - Repository **public**
 - README.md complet
 - LICENSE valide (MIT/Apache 2.0 recommandé)
 - Releases taguées en versioning sémantique
 
 ### 2. Structure Requise
+
 \`\`\`
 custom_components/ventilairsec2ha/
-├── __init__.py
+├── **init**.py
 ├── config_flow.py
 ├── manifest.json
 ├── strings.json
@@ -22,11 +24,12 @@ custom_components/ventilairsec2ha/
 ├── sensor.py
 ├── climate.py
 └── translations/
-    ├── en.json
-    └── fr.json
+├── en.json
+└── fr.json
 \`\`\`
 
 ### 3. manifest.json - Checklist
+
 - ✅ `manifest_version`: 1
 - ✅ `domain`: unique et minuscule
 - ✅ `name`: descriptif
@@ -37,30 +40,39 @@ custom_components/ventilairsec2ha/
 - ✅ `homeassistant`: version minimale (2023.1.0 minimum)
 
 ### 4. Code Quality Requirements
+
 \`\`\`bash
+
 # Installer les outils
+
 pip install homeassistant pylint flake8 pytest
 
 # Valider la structure
+
 python -m homeassistant.util.check_config ./
 
 # Linting
+
 pylint custom_components/ventilairsec2ha
 flake8 custom_components/ventilairsec2ha --max-line-length=100
 
 # Tests
+
 pytest tests/ --cov=custom_components/ventilairsec2ha
 \`\`\`
 
 ## Étapes de Soumission
 
 1. **Préparer le dépôt**
+
    - Créer une branche `main` stable
    - Tagger version `v1.0.0`
    - Créer Release GitHub
 
 2. **Intégrer HACS** (optionnel mais recommandé)
+
    - Ajouter `hacs.json`:
+
    ```json
    {
      "name": "Ventilairsec2HA",
@@ -71,6 +83,7 @@ pytest tests/ --cov=custom_components/ventilairsec2ha
    ```
 
 3. **Soumettre à la Boutique Officielle**
+
    - Fork: https://github.com/home-assistant/home-assistant.io
    - Créer PR dans `/source/_integrations/ventilairsec2ha.markdown`
    - Suivre le template officiel
@@ -110,6 +123,7 @@ pytest tests/ --cov=custom_components/ventilairsec2ha
 ## Support ENocean
 
 Vérifier la compatibilité avec:
+
 - Enocean USB 300 / 400
 - Enocean modules EEP A5-09-04 (température/humidité)
 - Enocean modules EEP A5-04-01 (capteurs de présence)

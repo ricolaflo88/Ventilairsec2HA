@@ -258,8 +258,8 @@ Store Readiness:          ✅ 100%
 └─────────────────────────────────────────────────┘
 ```
 
-**Date: 23 Décembre 2025**  
-**Validé: 100%**  
+**Date: 23 Décembre 2025**
+**Validé: 100%**
 **Prêt à: Publication**
 
 ---

@@ -16,7 +16,7 @@ async def hass() -> HomeAssistant:
 def mock_integration():
     """Mock the integration setup."""
     from unittest.mock import patch, MagicMock
-    
+
     with patch("custom_components.ventilairsec2ha.async_setup_entry") as mock:
         mock.return_value = True
         yield mock
